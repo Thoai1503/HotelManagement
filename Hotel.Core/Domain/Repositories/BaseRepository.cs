@@ -5,6 +5,10 @@ namespace Hotel.Core.Domain.Repositories
 {
     public abstract class BaseRepository : IBaseRepository
     {
+        public DbSet<TEntity> GetDbSet<TEntity>(DbContext dbContext) where TEntity : class
+        {
+            return dbContext.Set<TEntity>();
+        }
         public MySqlConnection Connection { get; }
 
         public MySqlTransaction Transaction { get; private set; }

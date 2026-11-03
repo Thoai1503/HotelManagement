@@ -7,13 +7,13 @@ namespace Hotel.Core.Domain.Repositories
         Task<MySqlConnection> BeginTransaction();
     }
 
-    public interface IBaseRepository<T> : IBaseRepository where T : class
+    public interface IBaseRepository<TEntity> : IBaseRepository
     {
-         Task<T>  Insert (T entity);
-        Task<T> Update (T entity);
-        Task<T> Delete (T entity);
+         Task<TEntity>  Insert (TEntity entity);
+        Task<TEntity> Update (TEntity entity);
+        Task<TEntity> Delete (TEntity entity);
          
-        Task<T> GetById (int id);
+        Task<TEntity> GetById (int id);
 
     }
 }
