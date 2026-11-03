@@ -6,7 +6,7 @@ namespace Hotel.Core.Domain.Entities;
 
 public partial class HotelScaffoldDbContext : DbContext
 {
-    public HotelScaffoldDbContext(DbContextOptions<HotelScaffoldDbContext> options)
+    public HotelScaffoldDbContext(DbContextOptions options)
         : base(options)
     {
     }

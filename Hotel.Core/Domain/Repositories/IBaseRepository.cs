@@ -9,11 +9,9 @@ namespace Hotel.Core.Domain.Repositories
 
     public interface IBaseRepository<TEntity> : IBaseRepository
     {
-         Task<TEntity>  Insert (TEntity entity);
-        Task<TEntity> Update (TEntity entity);
-        Task<TEntity> Delete (TEntity entity);
-         
-        Task<TEntity> GetById (int id);
-
+        Task<TEntity> Insert(TEntity entity);
+        Task<TEntity> Update(TEntity entity);
+        Task<TEntity> Delete(TEntity entity);
+        Task<TEntity?> GetById(params object[] keyValues);
     }
 }

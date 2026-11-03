@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Hotel.Core.Domain.Entities;
 
-public class HotelDbContext : DbContext
+public class HotelDbContext : HotelScaffoldDbContext
 {
     public HotelDbContext(
         DbContextOptions<HotelDbContext> options)
