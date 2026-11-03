@@ -20,6 +20,13 @@ namespace Hotel.Web
             // MySQL Connection
             var connectionString = Configuration
                 .GetConnectionString("DefaultConnection");
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new InvalidOperationException(
+                    "Database connection string is not configured. Set " +
+                    "'ConnectionStrings__DefaultConnection' in Hotel.Web/.env " +
+                    "or in the hosting environment.");
+            }
 
             services.AddDbContext<HotelDbContext>(options =>
             {

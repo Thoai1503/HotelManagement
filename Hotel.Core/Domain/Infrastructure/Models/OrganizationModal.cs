@@ -7,8 +7,8 @@
         public string code { get; set; }
         public string description { get; set; }
         public OrganizationModal() {
-        
-
+         
+            id = Guid.NewGuid();
         }
     }
 }
