@@ -1,0 +1,10 @@
+@model OrganizationModal
+
+<div asp-validation-summary="ModelOnly" class="validation"></div>
+<input asp-for="id" type="hidden" />
+<label asp-for="name">Name</label>
+<input asp-for="name" autocomplete="organization" />
+<span asp-validation-for="name" class="field-validation-error"></span>
+<label asp-for="code">Code</label>
+<input asp-for="code" />
+<span asp-validation-for="code" class="field-validation-error"></span>

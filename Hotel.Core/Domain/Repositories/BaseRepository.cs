@@ -55,6 +55,22 @@ namespace Hotel.Core.Domain.Repositories
         {
         }
 
+        public async Task<IReadOnlyList<TModel>> GetAll()
+        {
+            var entities = await Entities.AsNoTracking().ToListAsync();
+            var entityType = GetEntityType();
+            var models = new List<TModel>(entities.Count);
+
+            foreach (var entity in entities)
+            {
+                var model = Activator.CreateInstance<TModel>();
+                EntityModelMapper.CopyToModel(entity, model, entityType);
+                models.Add(model);
+            }
+
+            return models;
+        }
+
         public async Task<TModel> Insert(TModel model)
         {
             ArgumentNullException.ThrowIfNull(model);

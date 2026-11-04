@@ -1,0 +1,38 @@
+@model IReadOnlyList<OrganizationModal>
+@{
+    ViewData["Title"] = "Organizations";
+}
+
+<div class="actions" style="justify-content:space-between; margin-bottom:1rem">
+    <h1>Organizations</h1>
+    <a class="button" asp-area="Tenant" asp-action="Create">Create organization</a>
+</div>
+
+<div class="card">
+    @if (Model.Count == 0)
+    {
+        <p class="muted">No organizations have been added yet.</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr><th>Name</th><th>Code</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var organization in Model)
+                {
+                    <tr>
+                        <td>@organization.name</td>
+                        <td>@organization.code</td>
+                        <td class="actions">
+                            <a asp-area="Tenant" asp-action="Details" asp-route-id="@organization.id">Details</a>
+                            <a asp-area="Tenant" asp-action="Edit" asp-route-id="@organization.id">Edit</a>
+                            <a asp-area="Tenant" asp-action="Delete" asp-route-id="@organization.id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,14 @@
+@model OrganizationModal
+@{
+    ViewData["Title"] = "Organization details";
+}
+
+<h1>Organization details</h1>
+<div class="card">
+    <p><strong>Name:</strong> @Model.name</p>
+    <p><strong>Code:</strong> @Model.code</p>
+    <div class="actions">
+        <a class="button" asp-area="Tenant" asp-action="Edit" asp-route-id="@Model.id">Edit</a>
+        <a class="button secondary" asp-area="Tenant" asp-action="Index">Back to list</a>
+    </div>
+</div>

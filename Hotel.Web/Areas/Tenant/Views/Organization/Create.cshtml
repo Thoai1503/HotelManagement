@@ -1,0 +1,13 @@
+@model OrganizationModal
+@{
+    ViewData["Title"] = "Create organization";
+}
+
+<h1>Create organization</h1>
+<form asp-area="Tenant" asp-action="Create" method="post" class="card">
+    <partial name="_OrganizationForm" model="Model" />
+    <div class="actions" style="margin-top:1.25rem">
+        <button class="button" type="submit">Save</button>
+        <a class="button secondary" asp-area="Tenant" asp-action="Index">Cancel</a>
+    </div>
+</form>

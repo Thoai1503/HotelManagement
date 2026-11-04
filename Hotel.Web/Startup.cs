@@ -1,4 +1,5 @@
 ﻿using Hotel.Core.Domain.Service.Tenant;
+using Hotel.Core.Domain.Repositories.Tenant;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hotel.Web
@@ -37,6 +38,8 @@ namespace Hotel.Web
                 );
             });
             services.AddControllers();
+            services.AddHttpContextAccessor();
+            services.AddScoped<IOrganizationRepository, OrganizationRepository>();
             services.AddScoped<OrganizationService>();
 
             // Đăng ký Infrastructure
@@ -44,6 +47,7 @@ namespace Hotel.Web
         }
 
         // Cấu hình HTTP Middleware Pipeline
+
         public void Configure(
             IApplicationBuilder app,
             IWebHostEnvironment env)
@@ -62,14 +66,25 @@ namespace Hotel.Web
 
             app.UseStaticFiles();
 
+            // 1. Routing
             app.UseRouting();
 
+            // 2. Authentication
             app.UseAuthentication();
 
+            // 3. Authorization
             app.UseAuthorization();
 
+            // 4. Map endpoints
             app.UseEndpoints(endpoints =>
             {
+                // Area route
+                endpoints.MapControllerRoute(
+                    name: "withArea",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+                // Default route
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
