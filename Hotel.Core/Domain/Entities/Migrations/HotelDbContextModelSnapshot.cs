@@ -360,6 +360,10 @@ namespace Hotel.Core.Domain.Entities.Migrations
                         .HasColumnName("id")
                         .HasDefaultValueSql("'00000000-0000-0000-0000-000000000000'");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Code")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
@@ -375,6 +379,13 @@ namespace Hotel.Core.Domain.Entities.Migrations
                         .HasColumnName("createdAtUtc")
                         .HasDefaultValueSql("'0001-01-01 00:00:00.000000'");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
@@ -388,6 +399,10 @@ namespace Hotel.Core.Domain.Entities.Migrations
                         .HasColumnType("char(36)")
                         .HasColumnName("organizationId")
                         .HasDefaultValueSql("'00000000-0000-0000-0000-000000000000'");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
