@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hotel.Core.Domain.Service.Tenant;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hotel.Web
 {
@@ -35,6 +36,8 @@ namespace Hotel.Web
                     ServerVersion.AutoDetect(connectionString)
                 );
             });
+            services.AddControllers();
+            services.AddScoped<OrganizationService>();
 
             // Đăng ký Infrastructure
             // services.AddInfrastructure(Configuration);
