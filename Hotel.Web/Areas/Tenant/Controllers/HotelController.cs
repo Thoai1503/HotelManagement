@@ -52,40 +52,23 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> CreateOrUpdate(Guid? id)
         {
-            await SetOrganizationsAsync();
-            return View(new HotelModal());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(HotelModal hotel)
-        {
-            if (!await OrganizationExistsAsync(hotel.organizationId))
+            HotelModal hotel;
+            if (id.HasValue)
             {
-                ModelState.AddModelError(
-                    nameof(hotel.organizationId),
-                    "Select a valid organization.");
+                var existingHotel = await _hotelService.GetById(id.Value);
+                if (existingHotel is null)
+                {
+                    return NotFound();
+                }
+
+                hotel = existingHotel;
+                hotel.isEditMode = true;
             }
-
-            if (!ModelState.IsValid)
+            else
             {
-                await SetOrganizationsAsync();
-                return View(hotel);
-            }
-
-            await _hotelService.Create(hotel);
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Edit(Guid id)
-        {
-            var hotel = await _hotelService.GetById(id);
-            if (hotel is null)
-            {
-                return NotFound();
+                hotel = new HotelModal();
             }
 
             await SetOrganizationsAsync();
@@ -94,16 +77,21 @@ namespace Hotel.Web.Areas.Tenant.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, HotelModal hotel)
+        public async Task<IActionResult> CreateOrUpdate(Guid? id, HotelModal hotel)
         {
-            if (id != hotel.id)
+            if (id.HasValue && id.Value != hotel.id)
             {
                 return BadRequest();
             }
 
-            if (await _hotelService.GetById(id) is null)
+            HotelModal? existingHotel = null;
+            if (id.HasValue)
             {
-                return NotFound();
+                existingHotel = await _hotelService.GetById(id.Value);
+                if (existingHotel is null)
+                {
+                    return NotFound();
+                }
             }
 
             if (!await OrganizationExistsAsync(hotel.organizationId))
@@ -115,13 +103,29 @@ namespace Hotel.Web.Areas.Tenant.Controllers
 
             if (!ModelState.IsValid)
             {
+                hotel.isEditMode = id.HasValue;
                 await SetOrganizationsAsync();
                 return View(hotel);
             }
 
-            await _hotelService.Update(hotel);
+            if (existingHotel is null)
+            {
+                await _hotelService.Create(hotel);
+            }
+            else
+            {
+                await _hotelService.Update(hotel);
+            }
+
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult Create() => RedirectToAction(nameof(CreateOrUpdate));
+
+        [HttpGet]
+        public IActionResult Edit(Guid id) =>
+            RedirectToAction(nameof(CreateOrUpdate), new { id });
 
         [HttpGet]
         public async Task<IActionResult> Delete(Guid id)

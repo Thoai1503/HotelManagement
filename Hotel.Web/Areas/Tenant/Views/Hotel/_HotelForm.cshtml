@@ -30,7 +30,7 @@
                 </svg>
             </button>
             <div class="organization-picker-menu" role="listbox" aria-label="Organizations" hidden>
-                @foreach (var organization in organizations)
+                @foreach (OrganizationModal organization in organizations)
                 {
                     var initials = string.IsNullOrWhiteSpace(organization.name)
                         ? "O"
@@ -64,7 +64,7 @@
         {
             <small class="field-hint">
                 Create an organization before adding a hotel.
-                <a asp-area="Tenant" asp-controller="Organization" asp-action="Create">Create organization</a>
+                <a asp-area="Tenant" asp-controller="Organization" asp-action="CreateOrUpdate">Create organization</a>
             </small>
         }
     </div>

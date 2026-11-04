@@ -1,0 +1,70 @@
+@model HotelModal
+@{
+    var title = Model.isEditMode ? "Edit hotel" : "Create hotel";
+    ViewData["Title"] = title;
+}
+
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">TENANT MANAGEMENT</p>
+        <h1>@title</h1>
+        <p class="muted">
+            @(Model.isEditMode
+                ? "Update hotel details, organization, and contact information."
+                : "Add a hotel and its contact details under an organization.")
+        </p>
+    </div>
+    @if (Model.isEditMode)
+    {
+        <a class="button secondary" asp-area="Tenant" asp-controller="Hotel" asp-action="Details" asp-route-id="@Model.id">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Back to hotel
+        </a>
+    }
+    else
+    {
+        <a class="button secondary" asp-area="Tenant" asp-controller="Hotel" asp-action="Index">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Back to hotels
+        </a>
+    }
+</div>
+
+<form asp-area="Tenant"
+      asp-controller="Hotel"
+      asp-action="CreateOrUpdate"
+      asp-route-id="@(Model.isEditMode ? Model.id : (Guid?)null)"
+      method="post"
+      class="card organization-form">
+    <partial name="_HotelForm" model="Model" />
+    <div class="form-actions">
+        @if (Model.isEditMode)
+        {
+            <a class="button secondary" asp-area="Tenant" asp-controller="Hotel" asp-action="Details" asp-route-id="@Model.id">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6M9 12h12" />
+                </svg>
+                Cancel
+            </a>
+        }
+        else
+        {
+            <a class="button secondary" asp-area="Tenant" asp-controller="Hotel" asp-action="Index">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6M9 12h12" />
+                </svg>
+                Cancel
+            </a>
+        }
+        <button class="button" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M5 12.5 9.5 17 20 6.5" />
+            </svg>
+            @(Model.isEditMode ? "Save changes" : "Create hotel")
+        </button>
+    </div>
+</form>

@@ -9,7 +9,7 @@
         <h1>Hotels</h1>
         <p class="muted">Manage hotel profiles, locations, and contact information.</p>
     </div>
-    <a class="button" asp-area="Tenant" asp-controller="Hotel" asp-action="Create">
+    <a class="button" asp-area="Tenant" asp-controller="Hotel" asp-action="CreateOrUpdate">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M12 5v14M5 12h14" />
         </svg>
@@ -28,7 +28,7 @@
             </span>
             <h2>No hotels yet</h2>
             <p>Create a hotel and assign it to an organization.</p>
-            <a class="button" asp-area="Tenant" asp-controller="Hotel" asp-action="Create">
+            <a class="button" asp-area="Tenant" asp-controller="Hotel" asp-action="CreateOrUpdate">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M12 5v14M5 12h14" />
                 </svg>
@@ -87,7 +87,7 @@
                                             <circle cx="12" cy="12" r="2.5" />
                                         </svg>
                                     </a>
-                                    <a class="icon-button" asp-area="Tenant" asp-controller="Hotel" asp-action="Edit" asp-route-id="@hotel.id" title="Edit hotel" aria-label="Edit @hotel.name">
+                                    <a class="icon-button" asp-area="Tenant" asp-controller="Hotel" asp-action="CreateOrUpdate" asp-route-id="@hotel.id" title="Edit hotel" aria-label="Edit @hotel.name">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                                             <path d="m14 5 5 5M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z" />
                                         </svg>

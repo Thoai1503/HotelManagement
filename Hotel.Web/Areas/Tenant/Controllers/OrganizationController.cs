@@ -36,73 +36,49 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> CreateOrUpdate(Guid? id)
         {
-            return View(new OrganizationModal());
+            OrganizationModal organization;
+            if (id.HasValue)
+            {
+                var existingOrganization = await _organizationService.GetById(id.Value);
+                if (existingOrganization is null)
+                {
+                    return NotFound();
+                }
+
+                organization = existingOrganization;
+                organization.isEditMode = true;
+            }
+            else
+            {
+                organization = new OrganizationModal();
+            }
+
+            return View(organization);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [RequestSizeLimit(MaximumRequestSizeBytes)]
-        public async Task<IActionResult> Create(
+        public async Task<IActionResult> CreateOrUpdate(
+            Guid? id,
             OrganizationModal organization,
             IFormFile? logoFile)
         {
-            Console.WriteLine($"Received organization: {organization.name}, logoFile: {logoFile?.FileName}");
-            var logoValidationError = await GetLogoValidationErrorAsync(logoFile);
-            if (logoValidationError is not null)
-            {
-                ModelState.AddModelError(nameof(logoFile), logoValidationError);
-            }
-
-            // if (!ModelState.IsValid)
-            // { 
-            //     Console.WriteLine("Model state is invalid. Returning to view with errors.");
-            //     return View(organization);
-            // }
-
-            if (logoFile is not null)
-            {
-                organization.logo = await SaveLogoAsync(logoFile);
-            }
-
-            try
-            {
-                await _organizationService.Create(organization);
-            }
-            catch
-            {
-                DeleteLogo(organization.logo);
-                throw;
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Edit(Guid id)
-        {
-            var organization = await _organizationService.GetById(id);
-            return organization is null ? NotFound() : View(organization);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [RequestSizeLimit(MaximumRequestSizeBytes)]
-        public async Task<IActionResult> Edit(
-            Guid id,
-            OrganizationModal organization,
-            IFormFile? logoFile)
-        {
-            if (id != organization.id)
+            if (id.HasValue && id.Value != organization.id)
             {
                 return BadRequest();
             }
 
-            var existingOrganization = await _organizationService.GetById(id);
-            if (existingOrganization is null)
+            OrganizationModal? existingOrganization = null;
+            if (id.HasValue)
             {
-                return NotFound();
+                existingOrganization = await _organizationService.GetById(id.Value);
+                if (existingOrganization is null)
+                {
+                    return NotFound();
+                }
             }
 
             var logoValidationError = await GetLogoValidationErrorAsync(logoFile);
@@ -111,24 +87,36 @@ namespace Hotel.Web.Areas.Tenant.Controllers
                 ModelState.AddModelError(nameof(logoFile), logoValidationError);
             }
 
-            // if (!ModelState.IsValid)
-            // {
-            //     organization.logo = existingOrganization.logo;
-            //     return View(organization);
-            // }
+            if (!ModelState.IsValid)
+            {
+                organization.isEditMode = id.HasValue;
+                if (existingOrganization is not null)
+                {
+                    organization.logo = existingOrganization.logo;
+                }
+
+                return View(organization);
+            }
 
             if (logoFile is not null)
             {
                 organization.logo = await SaveLogoAsync(logoFile);
             }
-            else
+            else if (existingOrganization is not null)
             {
                 organization.logo = existingOrganization.logo;
             }
 
             try
             {
-                await _organizationService.Update(organization);
+                if (existingOrganization is null)
+                {
+                    await _organizationService.Create(organization);
+                }
+                else
+                {
+                    await _organizationService.Update(organization);
+                }
             }
             catch
             {
@@ -140,13 +128,20 @@ namespace Hotel.Web.Areas.Tenant.Controllers
                 throw;
             }
 
-            if (logoFile is not null)
+            if (logoFile is not null && existingOrganization is not null)
             {
                 DeleteLogo(existingOrganization.logo);
             }
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult Create() => RedirectToAction(nameof(CreateOrUpdate));
+
+        [HttpGet]
+        public IActionResult Edit(Guid id) =>
+            RedirectToAction(nameof(CreateOrUpdate), new { id });
 
         [HttpGet]
         public async Task<IActionResult> Delete(Guid id)

@@ -32,5 +32,7 @@ namespace Hotel.Core.Domain.Infrastructure.Models
         public string phoneNumber { get; set; } = string.Empty;
 
         public bool isActive { get; set; } = true;
+
+        public bool isEditMode { get; set; }
     }
 }

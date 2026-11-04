@@ -24,6 +24,8 @@
 
         public bool isActive { get; set; } = true;
 
+        public bool isEditMode { get; set; }
+
         public string description { get; set; }
         public OrganizationModal() {
          

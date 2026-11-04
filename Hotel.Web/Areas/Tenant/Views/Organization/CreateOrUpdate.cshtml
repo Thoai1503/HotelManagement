@@ -1,0 +1,70 @@
+@model OrganizationModal
+@{
+    var title = Model.isEditMode ? "Edit organization" : "Create organization";
+    ViewData["Title"] = title;
+}
+
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">TENANT MANAGEMENT</p>
+        <h1>@title</h1>
+        <p class="muted">
+            @(Model.isEditMode
+                ? "Update the organization profile and contact information."
+                : "Add your organization details and contact information.")
+        </p>
+    </div>
+    @if (Model.isEditMode)
+    {
+        <a class="button secondary" asp-area="Tenant" asp-action="Details" asp-route-id="@Model.id">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Back to profile
+        </a>
+    }
+    else
+    {
+        <a class="button secondary" asp-area="Tenant" asp-action="Index">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Back to list
+        </a>
+    }
+</div>
+
+<form asp-area="Tenant"
+      asp-action="CreateOrUpdate"
+      asp-route-id="@(Model.isEditMode ? Model.id : (Guid?)null)"
+      method="post"
+      enctype="multipart/form-data"
+      class="card organization-form">
+    <partial name="_OrganizationForm" model="Model" />
+    <div class="form-actions">
+        @if (Model.isEditMode)
+        {
+            <a class="button secondary" asp-area="Tenant" asp-action="Details" asp-route-id="@Model.id">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6M9 12h12" />
+                </svg>
+                Cancel
+            </a>
+        }
+        else
+        {
+            <a class="button secondary" asp-area="Tenant" asp-action="Index">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6M9 12h12" />
+                </svg>
+                Cancel
+            </a>
+        }
+        <button class="button" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M5 12.5 9.5 17 20 6.5" />
+            </svg>
+            @(Model.isEditMode ? "Save changes" : "Create organization")
+        </button>
+    </div>
+</form>
