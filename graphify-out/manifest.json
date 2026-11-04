@@ -1,0 +1,464 @@
+{
+  "Hotel.Core/Domain/Entities/AspNetRole.cs": {
+    "mtime": 1793667901.170665,
+    "seen": 1793781775.2215798,
+    "ast_hash": "a477c9e66f9d84612d428ad70c514b3d",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/AspNetRoleClaim.cs": {
+    "mtime": 1793667901.1716657,
+    "seen": 1793781775.221582,
+    "ast_hash": "231963a834653514a65c74cea8e4e4bb",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/AspNetUser.cs": {
+    "mtime": 1793667901.1716657,
+    "seen": 1793781775.2215836,
+    "ast_hash": "c1022e479d60e488eb6c94cb4e30a7f7",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/AspNetUserClaim.cs": {
+    "mtime": 1793667901.1726637,
+    "seen": 1793781775.2215855,
+    "ast_hash": "655be612900ff16c116934d7f3901f19",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/AspNetUserLogin.cs": {
+    "mtime": 1793667901.173667,
+    "seen": 1793781775.221587,
+    "ast_hash": "610ec2871ccd81e0146f76f782638563",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/AspNetUserToken.cs": {
+    "mtime": 1793667901.1746643,
+    "seen": 1793781775.2215884,
+    "ast_hash": "178b32fbcd65f31a29a5f637d3dccf1e",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/BusinessRole.cs": {
+    "mtime": 1793667901.1756642,
+    "seen": 1793781775.22159,
+    "ast_hash": "992fccce9b81e16851f429ee184fd5f3",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/EfmigrationsHistory.cs": {
+    "mtime": 1793667901.1766636,
+    "seen": 1793781775.221592,
+    "ast_hash": "877cdb7a50b49acb19581e302f499481",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Hotel.cs": {
+    "mtime": 1793767936.7330852,
+    "seen": 1793781775.2215934,
+    "ast_hash": "7d9d4d9e2a09cba6eae475c96dbe1eb7",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/HotelDbContext.cs": {
+    "mtime": 1793699291.835447,
+    "seen": 1793781775.2215948,
+    "ast_hash": "a84ea483105da01e94dedee71946dda5",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/HotelMembership.cs": {
+    "mtime": 1793667901.1796663,
+    "seen": 1793781775.2215967,
+    "ast_hash": "66c4bb858336229ea67aeb34cc31acfb",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/HotelScaffoldDbContext.cs": {
+    "mtime": 1793759684.3933463,
+    "seen": 1793781775.2215993,
+    "ast_hash": "2e955bcc349f50f724f2449abc734bca",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/20261104013404_AddOrganizationContactAndStatus.Designer.cs": {
+    "mtime": 1793756044.538648,
+    "seen": 1793781775.221601,
+    "ast_hash": "484aa18c44b3e475c9abe8b5228958cf",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/20261104013404_AddOrganizationContactAndStatus.cs": {
+    "mtime": 1793756085.241717,
+    "seen": 1793781775.2216034,
+    "ast_hash": "c1d3e008b42072d7ffc3dc135cc9e28b",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/20261104044541_AddHotelInfo.Designer.cs": {
+    "mtime": 1793767541.790084,
+    "seen": 1793781775.2216053,
+    "ast_hash": "5aaf84a6ac701eb4d32b5ebb076fd055",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/20261104044541_AddHotelInfo.cs": {
+    "mtime": 1793768153.6006567,
+    "seen": 1793781775.2216077,
+    "ast_hash": "16408dfe115a4e6819e58bb5e9f31a27",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/20261104045728_AddHotelContactAndStatus.Designer.cs": {
+    "mtime": 1793768248.632608,
+    "seen": 1793781775.221609,
+    "ast_hash": "5e475f0ac47b43f04dcf93f2b4eefd72",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/20261104045728_AddHotelContactAndStatus.cs": {
+    "mtime": 1793769039.788098,
+    "seen": 1793781775.2216122,
+    "ast_hash": "937de67b1efa9718e6c96f91128bfe61",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Migrations/HotelDbContextModelSnapshot.cs": {
+    "mtime": 1793768248.6366317,
+    "seen": 1793781775.2216141,
+    "ast_hash": "b4c0511c07116201d3c9a8298ab3d56f",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Organization.cs": {
+    "mtime": 1793755701.795365,
+    "seen": 1793781775.2216156,
+    "ast_hash": "b46bdcb2935ad190fe7355bafcc53dec",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/OrganizationMember.cs": {
+    "mtime": 1793667901.1806653,
+    "seen": 1793781775.2216187,
+    "ast_hash": "0394b3025f6c76838fb6385b3653884c",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Entities/Permission.cs": {
+    "mtime": 1793667901.1816697,
+    "seen": 1793781775.221621,
+    "ast_hash": "c1ca288a01acb263801b66166afffbaf",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Helpers/EntityModelMapper.cs": {
+    "mtime": 1793771428.447886,
+    "seen": 1793781775.2216225,
+    "ast_hash": "0844e8eedc784cec52bfaafe45c6765a",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Infrastructure/Models/HotelModal.cs": {
+    "mtime": 1793769330.5187335,
+    "seen": 1793781775.2216241,
+    "ast_hash": "6e1e0fd1cf88c28f1a5acdd3ca7d95ec",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Infrastructure/Models/OrganizationModal.cs": {
+    "mtime": 1793755702.0677214,
+    "seen": 1793781775.221627,
+    "ast_hash": "f149887a106e401521ee81c7011ed4d2",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Infrastructure/Models/SearchOptions.cs": {
+    "mtime": 1793686338.9453483,
+    "seen": 1793781775.2216287,
+    "ast_hash": "bfbc887418aff35eb6a7bd77b0f2d1ed",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Infrastructure/Models/SearchResult.cs": {
+    "mtime": 1793686426.9580815,
+    "seen": 1793781775.2216296,
+    "ast_hash": "2240c79df154b9b6549f4cd2dd1789c3",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Repositories/BaseRepository.cs": {
+    "mtime": 1793708878.387426,
+    "seen": 1793781775.221631,
+    "ast_hash": "353eb173a105affb4c76fda7b6775acc",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Repositories/IBaseRepository.cs": {
+    "mtime": 1793708878.3522985,
+    "seen": 1793781775.2216325,
+    "ast_hash": "30b259853cc334076a6efaf86eac04e6",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Repositories/Tenant/HotelRepository.cs": {
+    "mtime": 1793769414.2762434,
+    "seen": 1793781775.221634,
+    "ast_hash": "faa2efe2ad6f069928ca68f77b737366",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Repositories/Tenant/IHotelRepository.cs": {
+    "mtime": 1793769330.5576668,
+    "seen": 1793781775.221635,
+    "ast_hash": "df2aecf4ac029e247e92e110edc80455",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Repositories/Tenant/IOrganizationRepository.cs": {
+    "mtime": 1793707904.365629,
+    "seen": 1793781775.2216363,
+    "ast_hash": "b2c96136c53f3a554b77d1ffb20f9f85",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Repositories/Tenant/OrganizationRepository.cs": {
+    "mtime": 1793755145.031834,
+    "seen": 1793781775.2216377,
+    "ast_hash": "4771e5682abac517f2945cf1ba330fca",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Service/BaseService.cs": {
+    "mtime": 1793753269.8833458,
+    "seen": 1793781775.221639,
+    "ast_hash": "f5cc8899e284a4d0b1c52ef7797df874",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Service/IBaseService.cs": {
+    "mtime": 1793686602.3750577,
+    "seen": 1793781775.22164,
+    "ast_hash": "9fcf5ba8126b736cce61f7a7fdb2f28d",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Service/Tenant/HotelService.cs": {
+    "mtime": 1793769330.6756005,
+    "seen": 1793781775.2216418,
+    "ast_hash": "caaf8296ebeefd05b9c5a4e643172841",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Domain/Service/Tenant/OrganizationService.cs": {
+    "mtime": 1793708878.4205234,
+    "seen": 1793781775.221643,
+    "ast_hash": "a940ff8d2c2ef5c500a29d17144f43f7",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Hotel.Core.csproj": {
+    "mtime": 1793722766.0122864,
+    "seen": 1793781775.2216458,
+    "ast_hash": "1945ef362f9623ece487d8f50de18216",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Hotel.Core.sln": {
+    "mtime": 1793601670.701439,
+    "seen": 1793781775.221648,
+    "ast_hash": "cd0bc7591577f951a3cc77025157977d",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Migrations/20261104040728_InitialCreate.Designer.cs": {
+    "mtime": 1793765248.7412314,
+    "seen": 1793781775.2216506,
+    "ast_hash": "d30870a7191b6d721977b058540bd155",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Migrations/20261104040728_InitialCreate.cs": {
+    "mtime": 1793765248.739236,
+    "seen": 1793781775.2216525,
+    "ast_hash": "d5a190b99d057b4139e962dce4274e35",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Program.cs": {
+    "mtime": 1793598814.131129,
+    "seen": 1793781775.2216551,
+    "ast_hash": "4d5cc564d079987d1c55dc0c84bfd41d",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/Properties/launchSettings.json": {
+    "mtime": 1793598811.883584,
+    "seen": 1793781775.2216578,
+    "ast_hash": "31a3fd91e4b11637c3402583494550c7",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/appsettings.Development.json": {
+    "mtime": 1793598811.8122492,
+    "seen": 1793781775.2216594,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": ""
+  },
+  "Hotel.Core/appsettings.json": {
+    "mtime": 1793598811.8132553,
+    "seen": 1793781775.2216606,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Controllers/HotelController.cs": {
+    "mtime": 1793773232.4093766,
+    "seen": 1793781775.2216632,
+    "ast_hash": "67d92aca2008b88386c751976158a959",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Controllers/OrganizationController.cs": {
+    "mtime": 1793759182.547721,
+    "seen": 1793781775.221666,
+    "ast_hash": "a64aec839814366dafcf96b52947f956",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Hotel/Create.cshtml": {
+    "mtime": 1793769383.1779306,
+    "seen": 1793781775.2216673,
+    "ast_hash": "c6d784812e7986fad7562413c77f6945",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Hotel/Delete.cshtml": {
+    "mtime": 1793769383.8485403,
+    "seen": 1793781775.2216702,
+    "ast_hash": "c7e4918087427749d048bf3fae75e668",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Hotel/Details.cshtml": {
+    "mtime": 1793772380.1410983,
+    "seen": 1793781775.2216713,
+    "ast_hash": "924cb20c8ba5c83e960a0fde2e413563",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Hotel/Edit.cshtml": {
+    "mtime": 1793769383.324547,
+    "seen": 1793781775.2216737,
+    "ast_hash": "0a31591e90c7af1d355ddaa0c12e66d0",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Hotel/Index.cshtml": {
+    "mtime": 1793769382.923387,
+    "seen": 1793781775.2216756,
+    "ast_hash": "3a2b85e3d30b5b09e8ea3d6eca55bcdb",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Hotel/_HotelForm.cshtml": {
+    "mtime": 1793772443.6664443,
+    "seen": 1793781775.2216768,
+    "ast_hash": "29e753757747a0c2d90c25d7d921f3b1",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Organization/Create.cshtml": {
+    "mtime": 1793757638.5683773,
+    "seen": 1793781775.221678,
+    "ast_hash": "75831f2ad5a37905087738e5ce6a3ea1",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Organization/Delete.cshtml": {
+    "mtime": 1793757653.427994,
+    "seen": 1793781775.2216797,
+    "ast_hash": "8114b65a0ac1c2f1da8ef84418239a67",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Organization/Details.cshtml": {
+    "mtime": 1793757653.5068767,
+    "seen": 1793781775.2216809,
+    "ast_hash": "1a80afc8e0a904ff9d38cd8f61b25afe",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Organization/Edit.cshtml": {
+    "mtime": 1793757638.653471,
+    "seen": 1793781775.221682,
+    "ast_hash": "7fac167b73efaed79c697780d89a685d",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Organization/Index.cshtml": {
+    "mtime": 1793757638.471241,
+    "seen": 1793781775.2216837,
+    "ast_hash": "80164c41f04eb517e84606dd478fb520",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/Organization/_OrganizationForm.cshtml": {
+    "mtime": 1793756717.720089,
+    "seen": 1793781775.221685,
+    "ast_hash": "3b4496fe982a561d6b5d7366c962bc28",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/_ViewImports.cshtml": {
+    "mtime": 1793755037.98476,
+    "seen": 1793781775.2216868,
+    "ast_hash": "c827be0ad2724816c2756ef0108683e5",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Areas/Tenant/Views/_ViewStart.cshtml": {
+    "mtime": 1793755038.075066,
+    "seen": 1793781775.2216885,
+    "ast_hash": "2336b9de59d523bae11c72f111cf89ed",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Controllers/HomeController.cs": {
+    "mtime": 1793755024.6947865,
+    "seen": 1793781775.2216902,
+    "ast_hash": "784bedb940becb6423047f3f39d5b385",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Hotel.Web.csproj": {
+    "mtime": 1793722749.079638,
+    "seen": 1793781775.2216914,
+    "ast_hash": "18c89a4503399190681a182fb9bb77dc",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/HotelDbContextFactory.cs": {
+    "mtime": 1793756161.4532616,
+    "seen": 1793781775.221693,
+    "ast_hash": "e5fb99e86cd6fa549fc8aa0287587a98",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Program.cs": {
+    "mtime": 1793756531.6319942,
+    "seen": 1793781775.2216942,
+    "ast_hash": "f241476109f2e5d75156b5dbb41ba329",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Properties/launchSettings.json": {
+    "mtime": 1793598888.4309227,
+    "seen": 1793781775.2216954,
+    "ast_hash": "838eeaa14d420d617fb6890b446f0c1f",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Startup.cs": {
+    "mtime": 1793769330.7170136,
+    "seen": 1793781775.2216969,
+    "ast_hash": "5ddfab4e2aedd68acc813e00b1b70f23",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Views/Home/Index.cshtml": {
+    "mtime": 1793757653.5933182,
+    "seen": 1793781775.221698,
+    "ast_hash": "11c1783107951e1cf9d61a8bcef107b5",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Views/Shared/_Layout.cshtml": {
+    "mtime": 1793770090.227309,
+    "seen": 1793781775.2216992,
+    "ast_hash": "92c81e087dc85fbbd73347473a72353c",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Views/_ViewImports.cshtml": {
+    "mtime": 1793708924.0799122,
+    "seen": 1793781775.2217019,
+    "ast_hash": "c827be0ad2724816c2756ef0108683e5",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/Views/_ViewStart.cshtml": {
+    "mtime": 1793708878.5455418,
+    "seen": 1793781775.2217035,
+    "ast_hash": "27ceb987d0c24a8285d244f8fac35993",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/appsettings.Development.json": {
+    "mtime": 1793598888.4249296,
+    "seen": 1793781775.2217047,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/appsettings.json": {
+    "mtime": 1793687684.7427313,
+    "seen": 1793781775.221706,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793687684.964782,
+    "seen": 1793781775.2217073,
+    "ast_hash": "b13bb45d9cc43826e847412656b046c8",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/wwwroot/uploads/organizations/346f42e8b16c49f281fa41cd1b928b74.png": {
+    "mtime": 1793758439.7925143,
+    "seen": 1793781775.2217085,
+    "ast_hash": "def5e57473e318dbf965449818a04a0d",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/wwwroot/uploads/organizations/7ea7566d4fb744518154720da204458b.jpeg": {
+    "mtime": 1793758541.7188091,
+    "seen": 1793781775.22171,
+    "ast_hash": "8d61c2b52b547c02e9f44376a239a096",
+    "semantic_hash": ""
+  },
+  "Hotel.Web/wwwroot/uploads/organizations/de85109e9284489484eef3d8805180e7.jpeg": {
+    "mtime": 1793757257.981796,
+    "seen": 1793781775.2217119,
+    "ast_hash": "245941067929665f43b0c9bcfea9514b",
+    "semantic_hash": ""
+  }
+}

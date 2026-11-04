@@ -1,0 +1,85 @@
+@model HotelModal
+@{
+    ViewData["Title"] = "Hotel details";
+    var initials = string.IsNullOrWhiteSpace(Model.name)
+        ? "H"
+        : Model.name[..1].ToUpperInvariant();
+}
+
+<div class="organization-details">
+    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+        <a asp-area="Tenant" asp-controller="Hotel" asp-action="Index">Hotels</a>
+        <span aria-hidden="true">/</span>
+        <span>Hotel profile</span>
+    </nav>
+
+    <section class="organization-profile card">
+        <div class="organization-identity">
+            <div class="organization-avatar organization-avatar-fallback" aria-hidden="true">@initials</div>
+            <div class="organization-heading">
+                <p class="eyebrow">HOTEL PROFILE</p>
+                <h1>@Model.name</h1>
+                <p class="organization-code">Hotel code <strong>@Model.code</strong></p>
+                <p class="organization-code">
+                    Organization
+                    <a asp-area="Tenant" asp-controller="Organization" asp-action="Details" asp-route-id="@Model.organizationId">
+                        @Model.organizationName
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="organization-profile-actions">
+            <span class="status-badge @(Model.isActive ? "status-active" : "status-inactive")">
+                <span class="status-indicator" aria-hidden="true"></span>
+                @(Model.isActive ? "Active" : "Inactive")
+            </span>
+            <a class="button" asp-area="Tenant" asp-controller="Hotel" asp-action="Edit" asp-route-id="@Model.id">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m14 5 5 5M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z" />
+                </svg>
+                Edit hotel
+            </a>
+        </div>
+    </section>
+
+    <section class="detail-section" aria-labelledby="hotel-info-heading">
+        <div class="detail-section-heading">
+            <div>
+                <h2 id="hotel-info-heading">Hotel information</h2>
+                <p class="muted">Location and contact channels for this property.</p>
+            </div>
+        </div>
+        <div class="detail-grid">
+            <article class="detail-item card">
+                <span class="detail-icon" aria-hidden="true">⌖</span>
+                <div>
+                    <h3>Address</h3>
+                    <p class="detail-value">@Model.address</p>
+                </div>
+            </article>
+            <article class="detail-item card">
+                <span class="detail-icon" aria-hidden="true">✉</span>
+                <div>
+                    <h3>Email address</h3>
+                    <a href="mailto:@Model.email">@Model.email</a>
+                </div>
+            </article>
+            <article class="detail-item card">
+                <span class="detail-icon" aria-hidden="true">☎</span>
+                <div>
+                    <h3>Phone number</h3>
+                    <a href="tel:@Model.phoneNumber">@Model.phoneNumber</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="detail-footer">
+        <a class="button secondary" asp-area="Tenant" asp-controller="Hotel" asp-action="Index">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Back to hotels
+        </a>
+    </footer>
+</div>

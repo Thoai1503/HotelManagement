@@ -1,0 +1,769 @@
+{
+  "communities": {
+    "0": [
+      "actionname",
+      "controller",
+      "guid",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_address",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_code",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_email",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_id",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_isactive",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_name",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_organizationid",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_organizationname",
+      "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal_phonenumber",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_code",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_description",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_email",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_id",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_isactive",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_logo",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_name",
+      "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal_phonenumber",
+      "hotel_core_domain_service_tenant_hotelservice_hotel_core_domain_service_tenant_hotelservice",
+      "hotel_core_domain_service_tenant_hotelservice_hotel_core_domain_service_tenant_hotelservice_create",
+      "hotel_core_domain_service_tenant_hotelservice_hotel_core_domain_service_tenant_hotelservice_delete",
+      "hotel_core_domain_service_tenant_hotelservice_hotel_core_domain_service_tenant_hotelservice_getall",
+      "hotel_core_domain_service_tenant_hotelservice_hotel_core_domain_service_tenant_hotelservice_getbyid",
+      "hotel_core_domain_service_tenant_hotelservice_hotel_core_domain_service_tenant_hotelservice_update",
+      "hotel_core_domain_service_tenant_organizationservice_hotel_core_domain_service_tenant_organizationservice",
+      "hotel_core_domain_service_tenant_organizationservice_hotel_core_domain_service_tenant_organizationservice_create",
+      "hotel_core_domain_service_tenant_organizationservice_hotel_core_domain_service_tenant_organizationservice_delete",
+      "hotel_core_domain_service_tenant_organizationservice_hotel_core_domain_service_tenant_organizationservice_getall",
+      "hotel_core_domain_service_tenant_organizationservice_hotel_core_domain_service_tenant_organizationservice_getbyid",
+      "hotel_core_domain_service_tenant_organizationservice_hotel_core_domain_service_tenant_organizationservice_update",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_create",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_create_64217a",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_delete",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_deleteconfirmed",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_details",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_edit",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_edit_2dce2c",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_index",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_organizationexistsasync",
+      "hotel_web_areas_tenant_controllers_hotelcontroller_hotel_web_areas_tenant_controllers_hotelcontroller_setorganizationsasync",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_create",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_create_b120d1",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_delete",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_deleteconfirmed",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_deletelogo",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_details",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_edit",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_edit_406357",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_getlogodirectory",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_getlogovalidationerrorasync",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_index",
+      "hotel_web_areas_tenant_controllers_organizationcontroller_hotel_web_areas_tenant_controllers_organizationcontroller_savelogoasync",
+      "hotel_web_controllers_homecontroller_hotel_web_controllers_homecontroller",
+      "hotel_web_controllers_homecontroller_hotel_web_controllers_homecontroller_index",
+      "httpget",
+      "httppost",
+      "iactionresult",
+      "iformfile",
+      "requestsizelimit",
+      "task",
+      "validateantiforgerytoken"
+    ],
+    "1": [
+      "csharp_namespace:12f02d82d438c78e",
+      "csharp_namespace:3a7b1a5223773a7b",
+      "csharp_namespace:5d649ef82a8833a4",
+      "csharp_namespace:97f2303e20101ee2",
+      "csharp_namespace:aef340f59eae53d0",
+      "csharp_namespace:d8cdaed4600a6319",
+      "csharp_namespace:e7efc407ca39ea39",
+      "csharp_namespace:ea078721d36997b6",
+      "hotel_core_domain_infrastructure_models_hotelmodal",
+      "hotel_core_domain_infrastructure_models_organizationmodal",
+      "hotel_core_domain_repositories_tenant_hotelrepository",
+      "hotel_core_domain_repositories_tenant_hotelrepository_hotel_core_domain_repositories_tenant_hotelrepository",
+      "hotel_core_domain_repositories_tenant_ihotelrepository",
+      "hotel_core_domain_repositories_tenant_ihotelrepository_hotel_core_domain_repositories_tenant_ihotelrepository",
+      "hotel_core_domain_repositories_tenant_iorganizationrepository",
+      "hotel_core_domain_repositories_tenant_iorganizationrepository_hotel_core_domain_repositories_tenant_iorganizationrepository",
+      "hotel_core_domain_repositories_tenant_organizationrepository",
+      "hotel_core_domain_repositories_tenant_organizationrepository_hotel_core_domain_repositories_tenant_organizationrepository",
+      "hotel_core_domain_service_baseservice",
+      "hotel_core_domain_service_ibaseservice",
+      "hotel_core_domain_service_tenant_hotelservice",
+      "hotel_core_domain_service_tenant_organizationservice",
+      "hotel_web_areas_tenant_controllers_hotelcontroller",
+      "hotel_web_areas_tenant_controllers_organizationcontroller",
+      "hotel_web_areas_tenant_views_viewimports",
+      "hotel_web_controllers_homecontroller",
+      "hotel_web_program",
+      "hotel_web_program_program",
+      "hotel_web_program_program_createwebhostbuilder",
+      "hotel_web_program_program_finddotenvfile",
+      "hotel_web_program_program_loaddotenv",
+      "hotel_web_program_program_main",
+      "hotel_web_startup",
+      "hotel_web_startup_hotel_web_startup",
+      "hotel_web_startup_hotel_web_startup_configuration",
+      "hotel_web_startup_hotel_web_startup_configure",
+      "hotel_web_startup_hotel_web_startup_configureservices",
+      "hotel_web_views_viewimports",
+      "iapplicationbuilder",
+      "iconfiguration",
+      "iservicecollection",
+      "iwebhostbuilder",
+      "iwebhostenvironment",
+      "microsoft_aspnetcore",
+      "microsoft_aspnetcore_hosting",
+      "microsoft_aspnetcore_mvc",
+      "microsoft_extensions_fileproviders",
+      "system_componentmodel_dataannotations"
+    ],
+    "2": [
+      "csharp_namespace:68d8b5600a942663",
+      "csharp_namespace:83a5fac7b418c103",
+      "csharp_namespace:ce4790ad9c6072da",
+      "csharp_namespace:ec123167994719a7",
+      "hotel_core_domain_entities_aspnetrole",
+      "hotel_core_domain_entities_aspnetroleclaim",
+      "hotel_core_domain_entities_aspnetuser",
+      "hotel_core_domain_entities_aspnetuserclaim",
+      "hotel_core_domain_entities_aspnetuserlogin",
+      "hotel_core_domain_entities_aspnetusertoken",
+      "hotel_core_domain_entities_businessrole",
+      "hotel_core_domain_entities_efmigrationshistory",
+      "hotel_core_domain_entities_hotel",
+      "hotel_core_domain_entities_hoteldbcontext",
+      "hotel_core_domain_entities_hoteldbcontext_hoteldbcontext",
+      "hotel_core_domain_entities_hotelmembership",
+      "hotel_core_domain_entities_hotelscaffolddbcontext",
+      "hotel_core_domain_entities_migrations_20261104013404_addorganizationcontactandstatus",
+      "hotel_core_domain_entities_migrations_20261104013404_addorganizationcontactandstatus_designer",
+      "hotel_core_domain_entities_migrations_20261104044541_addhotelinfo",
+      "hotel_core_domain_entities_migrations_20261104044541_addhotelinfo_designer",
+      "hotel_core_domain_entities_migrations_20261104045728_addhotelcontactandstatus",
+      "hotel_core_domain_entities_migrations_20261104045728_addhotelcontactandstatus_designer",
+      "hotel_core_domain_entities_migrations_hoteldbcontextmodelsnapshot",
+      "hotel_core_domain_entities_organization",
+      "hotel_core_domain_entities_organizationmember",
+      "hotel_core_domain_entities_permission",
+      "hotel_core_domain_helpers_entitymodelmapper",
+      "hotel_core_domain_repositories_baserepository",
+      "hotel_core_migrations_20261104040728_initialcreate",
+      "hotel_core_migrations_20261104040728_initialcreate_designer",
+      "hotel_web_hoteldbcontextfactory",
+      "hotel_web_hoteldbcontextfactory_hoteldbcontextfactory",
+      "hotel_web_hoteldbcontextfactory_hoteldbcontextfactory_createdbcontext",
+      "idesigntimedbcontextfactory",
+      "microsoft_entityframeworkcore",
+      "microsoft_entityframeworkcore_design",
+      "microsoft_entityframeworkcore_infrastructure",
+      "microsoft_entityframeworkcore_metadata",
+      "microsoft_entityframeworkcore_migrations",
+      "microsoft_entityframeworkcore_storage_valueconversion",
+      "system",
+      "system_collections_generic",
+      "system_globalization",
+      "system_reflection"
+    ],
+    "3": [
+      "hotel_core_domain_infrastructure_models_searchoptions",
+      "hotel_core_domain_infrastructure_models_searchoptions_hotel_core_domain_infrastructure_models_searchoptions_1",
+      "hotel_core_domain_infrastructure_models_searchoptions_hotel_core_domain_infrastructure_models_searchoptions_1_example",
+      "hotel_core_domain_infrastructure_models_searchoptions_hotel_core_domain_infrastructure_models_searchoptions_1_issearchall",
+      "hotel_core_domain_infrastructure_models_searchoptions_hotel_core_domain_infrastructure_models_searchoptions_1_limit",
+      "hotel_core_domain_infrastructure_models_searchoptions_hotel_core_domain_infrastructure_models_searchoptions_1_offset",
+      "hotel_core_domain_infrastructure_models_searchoptions_hotel_core_domain_infrastructure_models_searchoptions_1_sort",
+      "hotel_core_domain_infrastructure_models_searchresult",
+      "hotel_core_domain_infrastructure_models_searchresult_hotel_core_domain_infrastructure_models_searchresult_1",
+      "hotel_core_domain_infrastructure_models_searchresult_hotel_core_domain_infrastructure_models_searchresult_1_count",
+      "hotel_core_domain_infrastructure_models_searchresult_hotel_core_domain_infrastructure_models_searchresult_1_entitylist",
+      "hotel_core_domain_infrastructure_models_searchresult_hotel_core_domain_infrastructure_models_searchresult_1_pageindex",
+      "hotel_core_domain_infrastructure_models_searchresult_hotel_core_domain_infrastructure_models_searchresult_1_totalpages",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1_baserepository",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1_delete",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1_insert",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1_repository",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1_search",
+      "hotel_core_domain_service_baseservice_hotel_core_domain_service_baseservice_1_update",
+      "hotel_core_domain_service_ibaseservice_hotel_core_domain_service_ibaseservice",
+      "hotel_core_domain_service_ibaseservice_hotel_core_domain_service_ibaseservice_delete",
+      "hotel_core_domain_service_ibaseservice_hotel_core_domain_service_ibaseservice_insert",
+      "hotel_core_domain_service_ibaseservice_hotel_core_domain_service_ibaseservice_search",
+      "hotel_core_domain_service_ibaseservice_hotel_core_domain_service_ibaseservice_update",
+      "idictionary",
+      "ienumerable",
+      "ihttpcontextaccessor"
+    ],
+    "4": [
+      "hotel_core_properties_launchsettings",
+      "hotel_core_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "hotel_core_properties_launchsettings_http_applicationurl",
+      "hotel_core_properties_launchsettings_http_commandname",
+      "hotel_core_properties_launchsettings_http_dotnetrunmessages",
+      "hotel_core_properties_launchsettings_http_environmentvariables",
+      "hotel_core_properties_launchsettings_http_launchbrowser",
+      "hotel_core_properties_launchsettings_https_applicationurl",
+      "hotel_core_properties_launchsettings_https_commandname",
+      "hotel_core_properties_launchsettings_https_dotnetrunmessages",
+      "hotel_core_properties_launchsettings_https_environmentvariables",
+      "hotel_core_properties_launchsettings_https_launchbrowser",
+      "hotel_core_properties_launchsettings_iis_express_commandname",
+      "hotel_core_properties_launchsettings_iis_express_environmentvariables",
+      "hotel_core_properties_launchsettings_iis_express_launchbrowser",
+      "hotel_core_properties_launchsettings_iisexpress_applicationurl",
+      "hotel_core_properties_launchsettings_iisexpress_sslport",
+      "hotel_core_properties_launchsettings_iissettings",
+      "hotel_core_properties_launchsettings_iissettings_anonymousauthentication",
+      "hotel_core_properties_launchsettings_iissettings_iisexpress",
+      "hotel_core_properties_launchsettings_iissettings_windowsauthentication",
+      "hotel_core_properties_launchsettings_profiles",
+      "hotel_core_properties_launchsettings_profiles_http",
+      "hotel_core_properties_launchsettings_profiles_https",
+      "hotel_core_properties_launchsettings_profiles_iis_express",
+      "hotel_core_properties_launchsettings_schema"
+    ],
+    "5": [
+      "hotel_web_properties_launchsettings",
+      "hotel_web_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "hotel_web_properties_launchsettings_http_applicationurl",
+      "hotel_web_properties_launchsettings_http_commandname",
+      "hotel_web_properties_launchsettings_http_dotnetrunmessages",
+      "hotel_web_properties_launchsettings_http_environmentvariables",
+      "hotel_web_properties_launchsettings_http_launchbrowser",
+      "hotel_web_properties_launchsettings_https_applicationurl",
+      "hotel_web_properties_launchsettings_https_commandname",
+      "hotel_web_properties_launchsettings_https_dotnetrunmessages",
+      "hotel_web_properties_launchsettings_https_environmentvariables",
+      "hotel_web_properties_launchsettings_https_launchbrowser",
+      "hotel_web_properties_launchsettings_iis_express_commandname",
+      "hotel_web_properties_launchsettings_iis_express_environmentvariables",
+      "hotel_web_properties_launchsettings_iis_express_launchbrowser",
+      "hotel_web_properties_launchsettings_iisexpress_applicationurl",
+      "hotel_web_properties_launchsettings_iisexpress_sslport",
+      "hotel_web_properties_launchsettings_iissettings",
+      "hotel_web_properties_launchsettings_iissettings_anonymousauthentication",
+      "hotel_web_properties_launchsettings_iissettings_iisexpress",
+      "hotel_web_properties_launchsettings_iissettings_windowsauthentication",
+      "hotel_web_properties_launchsettings_profiles",
+      "hotel_web_properties_launchsettings_profiles_http",
+      "hotel_web_properties_launchsettings_profiles_https",
+      "hotel_web_properties_launchsettings_profiles_iis_express",
+      "hotel_web_properties_launchsettings_schema"
+    ],
+    "6": [
+      "hotel_core_domain_helpers_entitymodelmapper_hotel_core_domain_helpers_entitymodelmapper",
+      "hotel_core_domain_helpers_entitymodelmapper_hotel_core_domain_helpers_entitymodelmapper_convertvalue",
+      "hotel_core_domain_helpers_entitymodelmapper_hotel_core_domain_helpers_entitymodelmapper_copytoentity",
+      "hotel_core_domain_helpers_entitymodelmapper_hotel_core_domain_helpers_entitymodelmapper_copytomodel",
+      "hotel_core_domain_helpers_entitymodelmapper_hotel_core_domain_helpers_entitymodelmapper_findproperty",
+      "hotel_core_domain_helpers_entitymodelmapper_hotel_core_domain_helpers_entitymodelmapper_getmodelvalue",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_delete",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_entities",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_findentityasync",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_getall",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_getbyid",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_getentitytype",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_insert",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_2_update",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_1",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_1_delete",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_1_getall",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_1_getbyid",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_1_insert",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_1_update",
+      "ientitytype",
+      "ireadonlylist",
+      "propertyinfo",
+      "type"
+    ],
+    "7": [
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_accessfailedcount",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_aspnetuserclaims",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_aspnetuserlogins",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_aspnetusertokens",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_concurrencystamp",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_displayname",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_email",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_emailconfirmed",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_id",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_lockoutenabled",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_lockoutend",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_normalizedemail",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_normalizedusername",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_passwordhash",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_phonenumber",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_phonenumberconfirmed",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_roles",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_securitystamp",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_twofactorenabled",
+      "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser_username"
+    ],
+    "8": [
+      "hotel_core_domain_entities_migrations_20261104013404_addorganizationcontactandstatus_designer_hotel_core_domain_entities_migrations_addorganizationcontactandstatus",
+      "hotel_core_domain_entities_migrations_20261104013404_addorganizationcontactandstatus_designer_hotel_core_domain_entities_migrations_addorganizationcontactandstatus_buildtargetmodel",
+      "hotel_core_domain_entities_migrations_20261104013404_addorganizationcontactandstatus_hotel_core_domain_entities_migrations_addorganizationcontactandstatus_down",
+      "hotel_core_domain_entities_migrations_20261104013404_addorganizationcontactandstatus_hotel_core_domain_entities_migrations_addorganizationcontactandstatus_up",
+      "hotel_core_domain_entities_migrations_20261104044541_addhotelinfo_designer_hotel_core_domain_entities_migrations_addhotelinfo",
+      "hotel_core_domain_entities_migrations_20261104044541_addhotelinfo_designer_hotel_core_domain_entities_migrations_addhotelinfo_buildtargetmodel",
+      "hotel_core_domain_entities_migrations_20261104044541_addhotelinfo_hotel_core_domain_entities_migrations_addhotelinfo_down",
+      "hotel_core_domain_entities_migrations_20261104044541_addhotelinfo_hotel_core_domain_entities_migrations_addhotelinfo_up",
+      "hotel_core_domain_entities_migrations_20261104045728_addhotelcontactandstatus_designer_hotel_core_domain_entities_migrations_addhotelcontactandstatus",
+      "hotel_core_domain_entities_migrations_20261104045728_addhotelcontactandstatus_designer_hotel_core_domain_entities_migrations_addhotelcontactandstatus_buildtargetmodel",
+      "hotel_core_domain_entities_migrations_20261104045728_addhotelcontactandstatus_hotel_core_domain_entities_migrations_addhotelcontactandstatus_down",
+      "hotel_core_domain_entities_migrations_20261104045728_addhotelcontactandstatus_hotel_core_domain_entities_migrations_addhotelcontactandstatus_up",
+      "hotel_core_migrations_20261104040728_initialcreate_designer_hotel_core_migrations_initialcreate",
+      "hotel_core_migrations_20261104040728_initialcreate_designer_hotel_core_migrations_initialcreate_buildtargetmodel",
+      "hotel_core_migrations_20261104040728_initialcreate_hotel_core_migrations_initialcreate_down",
+      "hotel_core_migrations_20261104040728_initialcreate_hotel_core_migrations_initialcreate_up",
+      "migration",
+      "migrationbuilder"
+    ],
+    "9": [
+      "dbcontext",
+      "dbset",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_begintransaction",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_connection",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_dbcontext",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_getdbset",
+      "hotel_core_domain_repositories_baserepository_hotel_core_domain_repositories_baserepository_transaction",
+      "hotel_core_domain_repositories_ibaserepository",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository",
+      "hotel_core_domain_repositories_ibaserepository_hotel_core_domain_repositories_ibaserepository_begintransaction",
+      "mysqlconnection",
+      "mysqlconnector",
+      "mysqltransaction"
+    ],
+    "10": [
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_aspnetroleclaims",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_aspnetroles",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_aspnetuserclaims",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_aspnetuserlogins",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_aspnetusers",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_aspnetusertokens",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_businessroles",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_efmigrationshistories",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_hotelmemberships",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_hotels",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_organizationmembers",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_organizations",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_permissions"
+    ],
+    "11": [
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_address",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_code",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_createdatutc",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_email",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_hotelmemberships",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_id",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_isactive",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_name",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_organization",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_organizationid",
+      "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel_phonenumber"
+    ],
+    "12": [
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_code",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_createdatutc",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_hotelid",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_hotelmemberships",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_id",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_name",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_organizationid",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_organizationmembers",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_permissions",
+      "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole_scope"
+    ],
+    "13": [
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_code",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_createdatutc",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_email",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_hotels",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_id",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_isactive",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_logo",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_name",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_organizationmembers",
+      "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization_phonenumber"
+    ],
+    "14": [
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_createdatutc",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_hotel",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_hotelid",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_id",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_organizationmember",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_organizationmemberid",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_roles",
+      "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership_status"
+    ],
+    "15": [
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_createdatutc",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_hotelmemberships",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_id",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_organization",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_organizationid",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_roles",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_status",
+      "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember_userid"
+    ],
+    "16": [
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole",
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole_aspnetroleclaims",
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole_concurrencystamp",
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole_id",
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole_name",
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole_normalizedname",
+      "hotel_core_domain_entities_aspnetrole_hotel_core_domain_entities_aspnetrole_users"
+    ],
+    "17": [
+      "hotel_core_domain_entities_permission_hotel_core_domain_entities_permission",
+      "hotel_core_domain_entities_permission_hotel_core_domain_entities_permission_code",
+      "hotel_core_domain_entities_permission_hotel_core_domain_entities_permission_createdatutc",
+      "hotel_core_domain_entities_permission_hotel_core_domain_entities_permission_description",
+      "hotel_core_domain_entities_permission_hotel_core_domain_entities_permission_id",
+      "hotel_core_domain_entities_permission_hotel_core_domain_entities_permission_roles",
+      "icollection"
+    ],
+    "18": [
+      "hotel_core_hotel_core",
+      "hotel_core_hotel_core_sln_hotel_core_hotel_core",
+      "hotel_web_hotel_web",
+      "hotel_web_hotel_web_csproj_framework_net8_0",
+      "hotel_web_hotel_web_csproj_nuget_microsoft_entityframeworkcore_design",
+      "hotel_web_hotel_web_csproj_nuget_pomelo_entityframeworkcore_mysql",
+      "hotel_web_hotel_web_csproj_sdk_microsoft_net_sdk_web"
+    ],
+    "19": [
+      "hotel_core_domain_entities_aspnetroleclaim_hotel_core_domain_entities_aspnetroleclaim",
+      "hotel_core_domain_entities_aspnetroleclaim_hotel_core_domain_entities_aspnetroleclaim_claimtype",
+      "hotel_core_domain_entities_aspnetroleclaim_hotel_core_domain_entities_aspnetroleclaim_claimvalue",
+      "hotel_core_domain_entities_aspnetroleclaim_hotel_core_domain_entities_aspnetroleclaim_id",
+      "hotel_core_domain_entities_aspnetroleclaim_hotel_core_domain_entities_aspnetroleclaim_role",
+      "hotel_core_domain_entities_aspnetroleclaim_hotel_core_domain_entities_aspnetroleclaim_roleid"
+    ],
+    "20": [
+      "hotel_core_domain_entities_aspnetuserclaim_hotel_core_domain_entities_aspnetuserclaim",
+      "hotel_core_domain_entities_aspnetuserclaim_hotel_core_domain_entities_aspnetuserclaim_claimtype",
+      "hotel_core_domain_entities_aspnetuserclaim_hotel_core_domain_entities_aspnetuserclaim_claimvalue",
+      "hotel_core_domain_entities_aspnetuserclaim_hotel_core_domain_entities_aspnetuserclaim_id",
+      "hotel_core_domain_entities_aspnetuserclaim_hotel_core_domain_entities_aspnetuserclaim_user",
+      "hotel_core_domain_entities_aspnetuserclaim_hotel_core_domain_entities_aspnetuserclaim_userid"
+    ],
+    "21": [
+      "hotel_core_domain_entities_aspnetuserlogin_hotel_core_domain_entities_aspnetuserlogin",
+      "hotel_core_domain_entities_aspnetuserlogin_hotel_core_domain_entities_aspnetuserlogin_loginprovider",
+      "hotel_core_domain_entities_aspnetuserlogin_hotel_core_domain_entities_aspnetuserlogin_providerdisplayname",
+      "hotel_core_domain_entities_aspnetuserlogin_hotel_core_domain_entities_aspnetuserlogin_providerkey",
+      "hotel_core_domain_entities_aspnetuserlogin_hotel_core_domain_entities_aspnetuserlogin_user",
+      "hotel_core_domain_entities_aspnetuserlogin_hotel_core_domain_entities_aspnetuserlogin_userid"
+    ],
+    "22": [
+      "hotel_core_domain_entities_aspnetusertoken_hotel_core_domain_entities_aspnetusertoken",
+      "hotel_core_domain_entities_aspnetusertoken_hotel_core_domain_entities_aspnetusertoken_loginprovider",
+      "hotel_core_domain_entities_aspnetusertoken_hotel_core_domain_entities_aspnetusertoken_name",
+      "hotel_core_domain_entities_aspnetusertoken_hotel_core_domain_entities_aspnetusertoken_user",
+      "hotel_core_domain_entities_aspnetusertoken_hotel_core_domain_entities_aspnetusertoken_userid",
+      "hotel_core_domain_entities_aspnetusertoken_hotel_core_domain_entities_aspnetusertoken_value"
+    ],
+    "23": [
+      "hotel_core_hotel_core_csproj_framework_net8_0",
+      "hotel_core_hotel_core_csproj_hotel_core_hotel_core",
+      "hotel_core_hotel_core_csproj_nuget_microsoft_entityframeworkcore_design",
+      "hotel_core_hotel_core_csproj_nuget_pomelo_entityframeworkcore_mysql",
+      "hotel_core_hotel_core_csproj_sdk_microsoft_net_sdk_web",
+      "nuget_microsoft_entityframeworkcore"
+    ],
+    "24": [
+      "dictionary",
+      "hotel_core_domain_entities_hoteldbcontext_hoteldbcontext_onmodelcreating",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_onmodelcreating",
+      "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext_onmodelcreatingpartial",
+      "modelbuilder"
+    ],
+    "25": [
+      "datetime",
+      "hotel_core_domain_entities_migrations_hoteldbcontextmodelsnapshot_hotel_core_domain_entities_migrations_hoteldbcontextmodelsnapshot",
+      "hotel_core_domain_entities_migrations_hoteldbcontextmodelsnapshot_hotel_core_domain_entities_migrations_hoteldbcontextmodelsnapshot_buildmodel",
+      "modelsnapshot"
+    ],
+    "26": [
+      "hotel_core_domain_entities_efmigrationshistory_hotel_core_domain_entities_efmigrationshistory",
+      "hotel_core_domain_entities_efmigrationshistory_hotel_core_domain_entities_efmigrationshistory_migrationid",
+      "hotel_core_domain_entities_efmigrationshistory_hotel_core_domain_entities_efmigrationshistory_productversion"
+    ],
+    "27": [
+      "hotel_web_areas_tenant_views_hotel_hotelform",
+      "hotel_web_areas_tenant_views_hotel_hotelform_cshtml_hotelmodal",
+      "hotel_web_areas_tenant_views_hotel_hotelform_cshtml_organizationmodal"
+    ],
+    "28": [
+      "hotel_web_areas_tenant_views_hotel_index",
+      "hotel_web_areas_tenant_views_hotel_index_cshtml_hotelmodal",
+      "ireadonlylist_hotelmodal"
+    ],
+    "29": [
+      "hotel_web_areas_tenant_views_organization_index",
+      "hotel_web_areas_tenant_views_organization_index_cshtml_organizationmodal",
+      "ireadonlylist_organizationmodal"
+    ],
+    "30": [
+      "readme",
+      "readme_database_connection",
+      "readme_hotelmanagement"
+    ],
+    "31": [
+      "hotel_web_areas_tenant_views_hotel_create",
+      "hotel_web_areas_tenant_views_hotel_create_cshtml_hotelmodal"
+    ],
+    "32": [
+      "hotel_web_areas_tenant_views_hotel_delete",
+      "hotel_web_areas_tenant_views_hotel_delete_cshtml_hotelmodal"
+    ],
+    "33": [
+      "hotel_web_areas_tenant_views_hotel_details",
+      "hotel_web_areas_tenant_views_hotel_details_cshtml_hotelmodal"
+    ],
+    "34": [
+      "hotel_web_areas_tenant_views_hotel_edit",
+      "hotel_web_areas_tenant_views_hotel_edit_cshtml_hotelmodal"
+    ],
+    "35": [
+      "hotel_web_areas_tenant_views_organization_create",
+      "hotel_web_areas_tenant_views_organization_create_cshtml_organizationmodal"
+    ],
+    "36": [
+      "hotel_web_areas_tenant_views_organization_delete",
+      "hotel_web_areas_tenant_views_organization_delete_cshtml_organizationmodal"
+    ],
+    "37": [
+      "hotel_web_areas_tenant_views_organization_details",
+      "hotel_web_areas_tenant_views_organization_details_cshtml_organizationmodal"
+    ],
+    "38": [
+      "hotel_web_areas_tenant_views_organization_edit",
+      "hotel_web_areas_tenant_views_organization_edit_cshtml_organizationmodal"
+    ],
+    "39": [
+      "hotel_web_areas_tenant_views_organization_organizationform",
+      "hotel_web_areas_tenant_views_organization_organizationform_cshtml_organizationmodal"
+    ],
+    "40": [
+      "hotel_core_program"
+    ],
+    "41": [
+      "hotel_web_areas_tenant_views_viewstart"
+    ],
+    "42": [
+      "hotel_web_views_home_index"
+    ],
+    "43": [
+      "hotel_web_views_shared_layout"
+    ],
+    "44": [
+      "hotel_web_views_viewstart"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08909995477159656,
+    "1": 0.06382978723404255,
+    "2": 0.10404040404040404,
+    "3": 0.0873015873015873,
+    "4": 0.08307692307692308,
+    "5": 0.08307692307692308,
+    "6": 0.17333333333333334,
+    "7": 0.09523809523809523,
+    "8": 0.1568627450980392,
+    "9": 0.16483516483516483,
+    "10": 0.14285714285714285,
+    "11": 0.16666666666666666,
+    "12": 0.18181818181818182,
+    "13": 0.18181818181818182,
+    "14": 0.2222222222222222,
+    "15": 0.2222222222222222,
+    "16": 0.2857142857142857,
+    "17": 0.2857142857142857,
+    "18": 0.2857142857142857,
+    "19": 0.3333333333333333,
+    "20": 0.3333333333333333,
+    "21": 0.3333333333333333,
+    "22": 0.3333333333333333,
+    "23": 0.3333333333333333,
+    "24": 0.6,
+    "25": 0.5,
+    "26": 0.6666666666666666,
+    "27": 0.6666666666666666,
+    "28": 0.6666666666666666,
+    "29": 0.6666666666666666,
+    "30": 0.6666666666666666,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0
+  },
+  "gods": [
+    {
+      "id": "hotel_core_domain_entities_hotelscaffolddbcontext_hotel_core_domain_entities_hotelscaffolddbcontext",
+      "label": "HotelScaffoldDbContext",
+      "degree": 32
+    },
+    {
+      "id": "hotel_core_domain_entities_aspnetuser_hotel_core_domain_entities_aspnetuser",
+      "label": "AspNetUser",
+      "degree": 30
+    },
+    {
+      "id": "hotel_core_domain_entities_hotel_hotel_core_domain_entities_hotel",
+      "label": "Hotel",
+      "degree": 21
+    },
+    {
+      "id": "hotel_core_domain_infrastructure_models_hotelmodal_hotel_core_domain_infrastructure_models_hotelmodal",
+      "label": "HotelModal",
+      "degree": 21
+    },
+    {
+      "id": "hotel_core_domain_infrastructure_models_organizationmodal_hotel_core_domain_infrastructure_models_organizationmodal",
+      "label": "OrganizationModal",
+      "degree": 20
+    },
+    {
+      "id": "hotel_core_domain_entities_businessrole_hotel_core_domain_entities_businessrole",
+      "label": "BusinessRole",
+      "degree": 19
+    },
+    {
+      "id": "hotel_core_domain_entities_organization_hotel_core_domain_entities_organization",
+      "label": "Organization",
+      "degree": 19
+    },
+    {
+      "id": "csharp_namespace:68d8b5600a942663",
+      "label": "Hotel.Core.Domain.Entities",
+      "degree": 17
+    },
+    {
+      "id": "hotel_core_domain_entities_hotelmembership_hotel_core_domain_entities_hotelmembership",
+      "label": "HotelMembership",
+      "degree": 17
+    },
+    {
+      "id": "hotel_core_domain_entities_organizationmember_hotel_core_domain_entities_organizationmember",
+      "label": "OrganizationMember",
+      "degree": 17
+    }
+  ],
+  "surprises": [
+    {
+      "source": "HotelDbContextFactory",
+      "target": "HotelDbContext",
+      "source_files": [
+        "Hotel.Web/HotelDbContextFactory.cs",
+        "Hotel.Core/Domain/Entities/HotelDbContext.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "HotelController",
+      "target": "HotelService",
+      "source_files": [
+        "Hotel.Web/Areas/Tenant/Controllers/HotelController.cs",
+        "Hotel.Core/Domain/Service/Tenant/HotelService.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "HotelController",
+      "target": "OrganizationService",
+      "source_files": [
+        "Hotel.Web/Areas/Tenant/Controllers/HotelController.cs",
+        "Hotel.Core/Domain/Service/Tenant/OrganizationService.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "OrganizationController",
+      "target": "OrganizationService",
+      "source_files": [
+        "Hotel.Web/Areas/Tenant/Controllers/OrganizationController.cs",
+        "Hotel.Core/Domain/Service/Tenant/OrganizationService.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "AspNetRole",
+      "target": "AspNetRoleClaim",
+      "source_files": [
+        "Hotel.Core/Domain/Entities/AspNetRole.cs",
+        "Hotel.Core/Domain/Entities/AspNetRoleClaim.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `HotelScaffoldDbContext` connect `Community 10` to `Community 2`, `Community 7`, `Community 9`, `Community 11`, `Community 12`, `Community 13`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 24`, `Community 26`?",
+      "why": "High betweenness centrality (0.096) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Id`, `Name`, `NormalizedName` to the rest of the system?",
+      "why": "170 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08909995477159656 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `AspNetUser` connect `Community 7` to `Community 0`, `Community 2`, `Community 10`, `Community 16`, `Community 17`, `Community 20`, `Community 21`, `Community 22`, `Community 24`, `Community 25`?",
+      "why": "High betweenness centrality (0.068) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06382978723404255 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Hotel` connect `Community 11` to `Community 0`, `Community 1`, `Community 2`, `Community 10`, `Community 13`, `Community 14`, `Community 17`, `Community 24`, `Community 25`?",
+      "why": "High betweenness centrality (0.055) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10404040404040404 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

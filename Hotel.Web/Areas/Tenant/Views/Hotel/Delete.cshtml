@@ -1,0 +1,44 @@
+@model HotelModal
+@{
+    ViewData["Title"] = "Delete hotel";
+}
+
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">TENANT MANAGEMENT</p>
+        <h1>Delete hotel</h1>
+        <p class="muted">Review the hotel before confirming deletion.</p>
+    </div>
+</div>
+
+<section class="card confirmation-card">
+    <div class="confirmation-body">
+        <span class="confirmation-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3 2.8 19h18.4L12 3Z" />
+                <path d="M12 9v4m0 3h.01" />
+            </svg>
+        </span>
+        <h2>Delete this hotel?</h2>
+        <p>This action cannot be undone. The hotel profile will be permanently removed.</p>
+        <div class="organization-summary">
+            <strong>@Model.name</strong>
+            <span>Hotel code: @Model.code</span>
+            <span>Organization: @Model.organizationName</span>
+        </div>
+    </div>
+    <form asp-area="Tenant" asp-controller="Hotel" asp-action="Delete" asp-route-id="@Model.id" method="post" class="confirmation-actions">
+        <a class="button secondary" asp-area="Tenant" asp-controller="Hotel" asp-action="Details" asp-route-id="@Model.id">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Cancel
+        </a>
+        <button class="button danger" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M4 7h16M10 11v6M14 11v6M5.5 7l1 14h11l1-14M9 7V4h6v3" />
+            </svg>
+            Delete hotel
+        </button>
+    </form>
+</section>

@@ -1,3 +1,18 @@
+@{
+    var isTenantArea = string.Equals(
+        ViewContext.RouteData.Values["area"]?.ToString(),
+        "Tenant",
+        StringComparison.OrdinalIgnoreCase);
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var isOrganizationPage = string.Equals(
+        currentController,
+        "Organization",
+        StringComparison.OrdinalIgnoreCase);
+    var isHotelPage = string.Equals(
+        currentController,
+        "Hotel",
+        StringComparison.OrdinalIgnoreCase);
+}
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,9 +22,24 @@
     <style>
         :root { font-family: system-ui, sans-serif; color: #1f2937; background: #f3f4f6; }
         body { margin: 0; }
-        header { padding: 1rem 2rem; background: #123047; color: white; }
+        header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 2rem; background: #123047; color: white; }
         header a { color: white; text-decoration: none; font-weight: 700; }
+        .tenant-shell { display: flex; min-height: calc(100vh - 56px); }
+        .tenant-sidebar { position: sticky; top: 0; flex: 0 0 240px; width: 240px; min-height: calc(100vh - 56px); padding: 1.5rem .85rem; border-right: 1px solid #e5e7eb; background: white; }
+        .sidebar-heading { margin: 0 .65rem 1.35rem; }
+        .sidebar-heading .eyebrow { margin: 0 0 .3rem; }
+        .sidebar-heading strong { color: #123047; font-size: .95rem; }
+        .sidebar-section-label { margin: 1.2rem .65rem .45rem; color: #9ca3af; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+        .tenant-nav { display: grid; gap: .25rem; }
+        .tenant-nav-link { display: flex; align-items: center; gap: .7rem; padding: .65rem .7rem; border-radius: .2rem; color: #4b5563; font-size: .88rem; font-weight: 550; text-decoration: none; }
+        .tenant-nav-link svg { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; color: #6b7280; }
+        .tenant-nav-link:hover { background: #f3f6f7; color: #12566d; }
+        .tenant-nav-link.active { background: #eaf3f6; color: #12566d; font-weight: 650; }
+        .tenant-nav-link.active svg { color: #176b87; }
+        .tenant-nav-link:focus-visible { outline: 3px solid rgb(23 107 135 / 25%); outline-offset: 2px; }
+        .sidebar-footer { margin: 2rem .65rem 0; padding-top: 1rem; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: .76rem; }
         main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+        .tenant-main { width: min(100%, 1120px); max-width: none; min-width: 0; margin: 0 auto; padding: 2rem; }
         h1 { margin-top: 0; }
         .card { padding: 1.5rem; background: white; border: 1px solid #d1d5db; border-radius: .5rem; }
         .actions { display: flex; gap: .75rem; align-items: center; }
@@ -101,6 +131,25 @@
         .form-control { width: 100%; padding: .72rem .8rem; border: 1px solid #d1d5db; border-radius: .45rem; background: #fff; color: #1f2937; transition: border-color .15s, box-shadow .15s; }
         .form-control::placeholder { color: #9ca3af; }
         .form-control:focus { outline: none; border-color: #176b87; box-shadow: 0 0 0 3px rgb(23 107 135 / 14%); }
+        .organization-picker { position: relative; }
+        .organization-picker.is-enhanced .organization-select { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .organization-picker-trigger { display: none; width: 100%; min-height: 3.25rem; align-items: center; justify-content: space-between; gap: .75rem; padding: .5rem .75rem; border: 1px solid #d1d5db; border-radius: .25rem; background: white; color: #1f2937; text-align: left; font: inherit; cursor: pointer; }
+        .organization-picker.is-enhanced .organization-picker-trigger { display: flex; }
+        .organization-picker-trigger:hover, .organization-picker-trigger[aria-expanded="true"] { border-color: #176b87; }
+        .organization-picker-trigger:focus-visible, .organization-picker-option:focus-visible { outline: 3px solid rgb(23 107 135 / 20%); outline-offset: 1px; }
+        .organization-picker-current { display: flex; min-width: 0; align-items: center; gap: .7rem; }
+        .organization-picker-chevron { width: 1rem; height: 1rem; flex: 0 0 auto; color: #6b7280; }
+        .organization-picker-menu { position: absolute; z-index: 20; top: calc(100% + .35rem); right: 0; left: 0; max-height: 18rem; overflow-y: auto; padding: .3rem; border: 1px solid #d1d5db; border-radius: .25rem; background: white; box-shadow: 0 12px 28px rgb(15 23 42 / 14%); }
+        .organization-picker-menu[hidden] { display: none; }
+        .organization-picker-option { display: flex; width: 100%; align-items: center; gap: .7rem; padding: .55rem; border: 0; border-radius: .2rem; background: white; color: #1f2937; text-align: left; font: inherit; cursor: pointer; }
+        .organization-picker-option:hover, .organization-picker-option[aria-selected="true"] { background: #eef5f7; }
+        .organization-option-logo { display: grid; width: 2.25rem; height: 2.25rem; flex: 0 0 2.25rem; place-items: center; object-fit: contain; overflow: hidden; border: 1px solid #e5e7eb; border-radius: .2rem; background: white; }
+        .organization-option-fallback, .organization-picker-placeholder { background: #e5eef2; color: #176b87; font-weight: 700; }
+        .organization-picker-placeholder { border-color: transparent; }
+        .organization-option-copy { display: block; min-width: 0; }
+        .organization-option-copy strong, .organization-option-copy small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .organization-option-copy strong { font-size: .88rem; font-weight: 650; }
+        .organization-option-copy small { margin-top: .12rem; color: #6b7280; font-size: .76rem; }
         .form-field .field-validation-error { display: block; margin-top: .35rem; font-size: .8rem; }
         .file-control { padding: .5rem; }
         .file-control::file-selector-button { margin-right: .75rem; padding: .45rem .7rem; border: 0; border-radius: .3rem; background: #e5eef2; color: #123047; font: inherit; cursor: pointer; }
@@ -122,6 +171,7 @@
         .muted { color: #6b7280; }
         @@media (max-width: 600px) {
             main { margin: 1.25rem auto; }
+            header { padding: .8rem 1rem; }
             .page-heading { align-items: flex-start; flex-direction: column; gap: .9rem; }
             .organization-list-heading { align-items: flex-start; flex-direction: column; }
             .organization-list-heading .button { width: 100%; }
@@ -138,12 +188,59 @@
             .confirmation-actions { padding: .9rem 1.1rem; }
             .confirmation-actions .button { flex: 1; }
         }
+        @@media (max-width: 760px) {
+            .tenant-shell { display: block; }
+            .tenant-sidebar { position: static; width: 100%; min-height: 0; padding: .8rem 1rem; border-right: 0; border-bottom: 1px solid #e5e7eb; }
+            .sidebar-heading, .sidebar-section-label, .sidebar-footer { display: none; }
+            .tenant-nav { display: flex; gap: .4rem; overflow-x: auto; }
+            .tenant-nav-link { flex: 0 0 auto; padding: .55rem .65rem; font-size: .82rem; }
+            .tenant-main { width: 100%; padding: 1.25rem 1rem; }
+        }
     </style>
 </head>
 <body>
-    <header><a asp-area="" asp-controller="Home" asp-action="Index">HotelManagement</a></header>
-    <main>
-        @RenderBody()
-    </main>
+    <header>
+        <a asp-area="" asp-controller="Home" asp-action="Index">HotelManagement</a>
+    </header>
+    @if (isTenantArea)
+    {
+        <div class="tenant-shell">
+            <aside class="tenant-sidebar">
+                <div class="sidebar-heading">
+                    <p class="eyebrow">WORKSPACE</p>
+                    <strong>Tenant management</strong>
+                </div>
+                <p class="sidebar-section-label">Manage</p>
+                <nav class="tenant-nav" aria-label="Tenant management">
+                    <a class="tenant-nav-link @(isOrganizationPage ? "active" : "")"
+                       asp-area="Tenant" asp-controller="Organization" asp-action="Index"
+                       aria-current="@(isOrganizationPage ? "page" : null)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h.01M15 10h.01M9 14h.01M15 14h.01M10 21v-4h4v4" />
+                        </svg>
+                        Organizations
+                    </a>
+                    <a class="tenant-nav-link @(isHotelPage ? "active" : "")"
+                       asp-area="Tenant" asp-controller="Hotel" asp-action="Index"
+                       aria-current="@(isHotelPage ? "page" : null)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <path d="M3 21h18M5 21V5h14v16M9 9h2m2 0h2M9 13h2m2 0h2M10 21v-4h4v4" />
+                        </svg>
+                        Hotels
+                    </a>
+                </nav>
+                <div class="sidebar-footer">HotelManagement · Tenant workspace</div>
+            </aside>
+            <main class="tenant-main">
+                @RenderBody()
+            </main>
+        </div>
+    }
+    else
+    {
+        <main>
+            @RenderBody()
+        </main>
+    }
 </body>
 </html>

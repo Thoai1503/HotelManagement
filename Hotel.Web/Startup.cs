@@ -42,6 +42,8 @@ namespace Hotel.Web
             services.AddHttpContextAccessor();
             services.AddScoped<IOrganizationRepository, OrganizationRepository>();
             services.AddScoped<OrganizationService>();
+            services.AddScoped<IHotelRepository, HotelRepository>();
+            services.AddScoped<HotelService>();
 
             // Đăng ký Infrastructure
             // services.AddInfrastructure(Configuration);

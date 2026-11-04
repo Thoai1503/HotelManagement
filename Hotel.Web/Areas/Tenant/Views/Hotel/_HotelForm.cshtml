@@ -1,0 +1,199 @@
+@model HotelModal
+@{
+    IReadOnlyList<OrganizationModal>? organizations = ViewData["Organizations"] as IReadOnlyList<OrganizationModal>
+        ?? Array.Empty<OrganizationModal>();
+}
+
+<div asp-validation-summary="ModelOnly" class="validation form-validation"></div>
+<input asp-for="id" type="hidden" />
+<div class="form-grid">
+    <div class="form-field form-field-wide">
+        <label asp-for="organizationId">Organization</label>
+        <div class="organization-picker">
+            <select asp-for="organizationId" class="form-control organization-select">
+            <option value="">Select an organization</option>
+            @foreach (var organization in organizations)
+            {
+                <option value="@organization.id">@organization.name (@organization.code)</option>
+            }
+            </select>
+            <button type="button" class="organization-picker-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="organization-picker-current">
+                    <span class="organization-option-logo organization-picker-placeholder" aria-hidden="true">?</span>
+                    <span class="organization-option-copy">
+                        <strong>Select an organization</strong>
+                        <small>Choose the organization that owns this hotel</small>
+                    </span>
+                </span>
+                <svg class="organization-picker-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
+            </button>
+            <div class="organization-picker-menu" role="listbox" aria-label="Organizations" hidden>
+                @foreach (var organization in organizations)
+                {
+                    var initials = string.IsNullOrWhiteSpace(organization.name)
+                        ? "O"
+                        : organization.name[..1].ToUpperInvariant();
+                    <button type="button"
+                            class="organization-picker-option"
+                            role="option"
+                            aria-selected="false"
+                            data-value="@organization.id"
+                            data-name="@organization.name"
+                            data-code="@organization.code"
+                            data-logo="@organization.logo">
+                        @if (!string.IsNullOrWhiteSpace(organization.logo))
+                        {
+                            <img class="organization-option-logo" src="@organization.logo" alt="" />
+                        }
+                        else
+                        {
+                            <span class="organization-option-logo organization-option-fallback" aria-hidden="true">@initials</span>
+                        }
+                        <span class="organization-option-copy">
+                            <strong>@organization.name</strong>
+                            <small>@organization.code</small>
+                        </span>
+                    </button>
+                }
+            </div>
+        </div>
+        <span asp-validation-for="organizationId" class="field-validation-error"></span>
+        @if (organizations.Count == 0)
+        {
+            <small class="field-hint">
+                Create an organization before adding a hotel.
+                <a asp-area="Tenant" asp-controller="Organization" asp-action="Create">Create organization</a>
+            </small>
+        }
+    </div>
+    <div class="form-field">
+        <label asp-for="name">Hotel name</label>
+        <input asp-for="name" class="form-control" autocomplete="organization" placeholder="e.g. Northstar Riverside" />
+        <span asp-validation-for="name" class="field-validation-error"></span>
+    </div>
+    <div class="form-field">
+        <label asp-for="code">Hotel code</label>
+        <input asp-for="code" class="form-control" placeholder="e.g. NORTH-RIVER" />
+        <span asp-validation-for="code" class="field-validation-error"></span>
+        <small class="field-hint">Hotel codes must be unique within the selected organization.</small>
+    </div>
+    <div class="form-field form-field-wide">
+        <label asp-for="address">Address</label>
+        <input asp-for="address" class="form-control" autocomplete="street-address" placeholder="Street, city, region" />
+        <span asp-validation-for="address" class="field-validation-error"></span>
+    </div>
+    <div class="form-field">
+        <label asp-for="email">Email address</label>
+        <input asp-for="email" class="form-control" type="email" autocomplete="email" placeholder="hotel@company.com" />
+        <span asp-validation-for="email" class="field-validation-error"></span>
+    </div>
+    <div class="form-field">
+        <label asp-for="phoneNumber">Phone number</label>
+        <input asp-for="phoneNumber" class="form-control" type="tel" autocomplete="tel" placeholder="+1 555 000 0000" />
+        <span asp-validation-for="phoneNumber" class="field-validation-error"></span>
+    </div>
+    <div class="form-field form-field-wide">
+        <label class="active-toggle">
+            <input asp-for="isActive" class="active-checkbox" />
+            <span>
+                <strong>Hotel is active</strong>
+                <small>Active hotels can access tenant features.</small>
+            </span>
+        </label>
+    </div>
+</div>
+
+<script>
+    (() => {
+        const picker = document.currentScript.previousElementSibling
+            .querySelector(".organization-picker");
+        if (!picker) return;
+
+        const select = picker.querySelector(".organization-select");
+        const trigger = picker.querySelector(".organization-picker-trigger");
+        const menu = picker.querySelector(".organization-picker-menu");
+        const current = picker.querySelector(".organization-picker-current");
+        const options = Array.from(menu.querySelectorAll(".organization-picker-option"));
+        const placeholder = current.innerHTML;
+
+        const closeMenu = (returnFocus = false) => {
+            menu.hidden = true;
+            trigger.setAttribute("aria-expanded", "false");
+            if (returnFocus) trigger.focus();
+        };
+
+        const selectOption = (option) => {
+            select.value = option.dataset.value;
+            select.dispatchEvent(new Event("change", { bubbles: true }));
+            current.innerHTML = option.innerHTML;
+            options.forEach(item => {
+                const selected = item === option;
+                item.setAttribute("aria-selected", selected ? "true" : "false");
+            });
+            closeMenu();
+        };
+
+        const syncSelection = () => {
+            const selectedOption = options.find(option => option.dataset.value === select.value);
+            if (selectedOption) {
+                current.innerHTML = selectedOption.innerHTML;
+                selectedOption.setAttribute("aria-selected", "true");
+            } else {
+                current.innerHTML = placeholder;
+            }
+        };
+
+        trigger.addEventListener("click", () => {
+            const isOpening = menu.hidden;
+            menu.hidden = !isOpening;
+            trigger.setAttribute("aria-expanded", String(isOpening));
+            if (isOpening && options.length) options[0].focus();
+        });
+
+        options.forEach((option, index) => {
+            option.addEventListener("click", () => selectOption(option));
+            option.addEventListener("keydown", event => {
+                let nextIndex;
+                if (event.key === "ArrowDown") nextIndex = (index + 1) % options.length;
+                else if (event.key === "ArrowUp") nextIndex = (index - 1 + options.length) % options.length;
+                else if (event.key === "Home") nextIndex = 0;
+                else if (event.key === "End") nextIndex = options.length - 1;
+                else if (event.key === "Escape") {
+                    event.preventDefault();
+                    closeMenu(true);
+                    return;
+                } else if (event.key === "Tab") {
+                    closeMenu();
+                    return;
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
+                options[nextIndex].focus();
+            });
+        });
+
+        trigger.addEventListener("keydown", event => {
+            if ((event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") && options.length) {
+                event.preventDefault();
+                menu.hidden = false;
+                trigger.setAttribute("aria-expanded", "true");
+                const selected = options.find(option => option.dataset.value === select.value);
+                (selected || options[0]).focus();
+            }
+        });
+
+        document.addEventListener("click", event => {
+            if (!picker.contains(event.target)) closeMenu();
+        });
+
+        select.addEventListener("change", syncSelection);
+        syncSelection();
+        select.tabIndex = -1;
+        select.setAttribute("aria-hidden", "true");
+        picker.classList.add("is-enhanced");
+    })();
+</script>
