@@ -3,36 +3,126 @@
     ViewData["Title"] = "Organizations";
 }
 
-<div class="actions" style="justify-content:space-between; margin-bottom:1rem">
-    <h1>Organizations</h1>
-    <a class="button" asp-area="Tenant" asp-action="Create">Create organization</a>
+<div class="organization-list-heading">
+    <div>
+        <p class="eyebrow">TENANT MANAGEMENT</p>
+        <h1>Organizations</h1>
+        <p class="muted">Manage organization profiles and contact information.</p>
+    </div>
+    <a class="button" asp-area="Tenant" asp-action="Create">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+        </svg>
+        Create organization
+    </a>
 </div>
 
-<div class="card">
+<div class="card organization-table-card">
     @if (Model.Count == 0)
     {
-        <p class="muted">No organizations have been added yet.</p>
+        <div class="empty-state">
+            <span class="empty-state-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h.01M15 10h.01M9 14h.01M15 14h.01M10 21v-4h4v4" />
+                </svg>
+            </span>
+            <h2>No organizations yet</h2>
+            <p>Create an organization to start managing its tenant profile.</p>
+            <a class="button" asp-area="Tenant" asp-action="Create">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" />
+                </svg>
+                Create organization
+            </a>
+        </div>
     }
     else
     {
-        <table>
-            <thead>
-                <tr><th>Name</th><th>Code</th><th>Actions</th></tr>
-            </thead>
-            <tbody>
-                @foreach (var organization in Model)
-                {
+        <div class="table-scroll">
+            <table class="organization-table">
+                <thead>
                     <tr>
-                        <td>@organization.name</td>
-                        <td>@organization.code</td>
-                        <td class="actions">
-                            <a asp-area="Tenant" asp-action="Details" asp-route-id="@organization.id">Details</a>
-                            <a asp-area="Tenant" asp-action="Edit" asp-route-id="@organization.id">Edit</a>
-                            <a asp-area="Tenant" asp-action="Delete" asp-route-id="@organization.id">Delete</a>
-                        </td>
+                        <th>Organization</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th><span class="visually-hidden">Actions</span></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var organization in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="organization-name-cell">
+                                    <span class="table-avatar">
+                                        @if (!string.IsNullOrWhiteSpace(organization.logo))
+                                        {
+                                            <img src="@organization.logo" alt="" />
+                                        }
+                                        else
+                                        {
+                                            @(string.IsNullOrWhiteSpace(organization.name) ? "O" : organization.name[..1].ToUpperInvariant())
+                                        }
+                                    </span>
+                                    <span>
+                                        <a class="organization-name" asp-area="Tenant" asp-action="Details" asp-route-id="@organization.id">
+                                            @organization.name
+                                        </a>
+                                        <small class="organization-code-cell">@organization.code</small>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(organization.email))
+                                {
+                                    <a href="mailto:@organization.email">@organization.email</a>
+                                }
+                                else
+                                {
+                                    <span class="detail-empty">—</span>
+                                }
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(organization.phoneNumber))
+                                {
+                                    <a href="tel:@organization.phoneNumber">@organization.phoneNumber</a>
+                                }
+                                else
+                                {
+                                    <span class="detail-empty">—</span>
+                                }
+                            </td>
+                            <td>
+                                <span class="table-status @(organization.isActive ? "table-status-active" : "table-status-inactive")">
+                                    <span class="status-indicator" aria-hidden="true"></span>
+                                    @(organization.isActive ? "Active" : "Inactive")
+                                </span>
+                            </td>
+                            <td>
+                                <div class="table-actions">
+                                    <a class="icon-button" asp-area="Tenant" asp-action="Details" asp-route-id="@organization.id" title="View details" aria-label="View @organization.name details">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z" />
+                                            <circle cx="12" cy="12" r="2.5" />
+                                        </svg>
+                                    </a>
+                                    <a class="icon-button" asp-area="Tenant" asp-action="Edit" asp-route-id="@organization.id" title="Edit organization" aria-label="Edit @organization.name">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path d="m14 5 5 5M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z" />
+                                        </svg>
+                                    </a>
+                                    <a class="icon-button danger" asp-area="Tenant" asp-action="Delete" asp-route-id="@organization.id" title="Delete organization" aria-label="Delete @organization.name">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path d="M4 7h16M10 11v6M14 11v6M5.5 7l1 14h11l1-14M9 7V4h6v3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
 </div>

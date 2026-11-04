@@ -11,6 +11,14 @@ public partial class Organization
 
     public string Code { get; set; } = null!;
 
+    public string? Logo { get; set; }
+
+    public string? Email { get; set; }
+
+    public string? PhoneNumber { get; set; }
+
+    public bool IsActive { get; set; } = true;
+
     public DateTime CreatedAtUtc { get; set; }
 
     public virtual ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();

@@ -272,6 +272,7 @@ public partial class HotelScaffoldDbContext : DbContext
                 .HasMaxLength(50)
                 .HasDefaultValueSql("''")
                 .HasColumnName("code");
+
             entity.Property(e => e.CreatedAtUtc)
                 .HasMaxLength(6)
                 .HasDefaultValueSql("'0001-01-01 00:00:00.000000'")
@@ -280,6 +281,10 @@ public partial class HotelScaffoldDbContext : DbContext
                 .HasMaxLength(200)
                 .HasDefaultValueSql("''")
                 .HasColumnName("name");
+            // entity.Property(e => e.Phone)
+            //     .HasMaxLength(32)
+            //     .HasColumnName("phone");
+
             entity.Property(e => e.OrganizationId)
                 .HasDefaultValueSql("'00000000-0000-0000-0000-000000000000'")
                 .HasColumnName("organizationId");
@@ -354,6 +359,18 @@ public partial class HotelScaffoldDbContext : DbContext
             entity.Property(e => e.Id)
                 .HasDefaultValueSql("'00000000-0000-0000-0000-000000000000'")
                 .HasColumnName("id");
+            entity.Property(e => e.Email)
+                .HasMaxLength(256)
+                .HasColumnName("email");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasColumnName("isActive");
+            entity.Property(e => e.Logo)
+                .HasMaxLength(2048)
+                .HasColumnName("logo");
+            entity.Property(e => e.PhoneNumber)
+                .HasMaxLength(32)
+                .HasColumnName("phoneNumber");
             entity.Property(e => e.Code)
                 .HasMaxLength(50)
                 .HasDefaultValueSql("''")

@@ -1,14 +1,95 @@
 @model OrganizationModal
 @{
     ViewData["Title"] = "Organization details";
+    var initials = string.IsNullOrWhiteSpace(Model.name)
+        ? "O"
+        : Model.name[..1].ToUpperInvariant();
 }
 
-<h1>Organization details</h1>
-<div class="card">
-    <p><strong>Name:</strong> @Model.name</p>
-    <p><strong>Code:</strong> @Model.code</p>
-    <div class="actions">
-        <a class="button" asp-area="Tenant" asp-action="Edit" asp-route-id="@Model.id">Edit</a>
-        <a class="button secondary" asp-area="Tenant" asp-action="Index">Back to list</a>
-    </div>
+<div class="organization-details">
+    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+        <a asp-area="Tenant" asp-action="Index">Organizations</a>
+        <span aria-hidden="true">/</span>
+        <span>Organization profile</span>
+    </nav>
+
+    <section class="organization-profile card">
+        <div class="organization-identity">
+            @if (!string.IsNullOrWhiteSpace(Model.logo))
+            {
+                <img class="organization-avatar" src="@Model.logo" alt="@Model.name logo" />
+            }
+            else
+            {
+                <div class="organization-avatar organization-avatar-fallback" aria-hidden="true">
+                    @initials
+                </div>
+            }
+            <div class="organization-heading">
+                <p class="eyebrow">ORGANIZATION PROFILE</p>
+                <h1>@Model.name</h1>
+                <p class="organization-code">Organization code <strong>@Model.code</strong></p>
+            </div>
+        </div>
+        <div class="organization-profile-actions">
+            <span class="status-badge @(Model.isActive ? "status-active" : "status-inactive")">
+                <span class="status-indicator" aria-hidden="true"></span>
+                @(Model.isActive ? "Active" : "Inactive")
+            </span>
+            <a class="button" asp-area="Tenant" asp-action="Edit" asp-route-id="@Model.id">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="m14 5 5 5M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z" />
+                </svg>
+                Edit organization
+            </a>
+        </div>
+    </section>
+
+    <section class="detail-section" aria-labelledby="contact-heading">
+        <div class="detail-section-heading">
+            <div>
+                <h2 id="contact-heading">Contact information</h2>
+                <p class="muted">Organization contact details and communication channels.</p>
+            </div>
+        </div>
+        <div class="detail-grid">
+            <article class="detail-item card">
+                <span class="detail-icon" aria-hidden="true">✉</span>
+                <div>
+                    <h3>Email address</h3>
+                    @if (!string.IsNullOrWhiteSpace(Model.email))
+                    {
+                        <a href="mailto:@Model.email">@Model.email</a>
+                    }
+                    else
+                    {
+                        <p class="detail-empty">Not provided</p>
+                    }
+                </div>
+            </article>
+            <article class="detail-item card">
+                <span class="detail-icon" aria-hidden="true">☎</span>
+                <div>
+                    <h3>Phone number</h3>
+                    @if (!string.IsNullOrWhiteSpace(Model.phoneNumber))
+                    {
+                        <a href="tel:@Model.phoneNumber">@Model.phoneNumber</a>
+                    }
+                    else
+                    {
+                        <p class="detail-empty">Not provided</p>
+                    }
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="detail-footer">
+        <a class="button secondary" asp-area="Tenant" asp-action="Index">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" />
+            </svg>
+            Back to organizations
+        </a>
+    </footer>
 </div>

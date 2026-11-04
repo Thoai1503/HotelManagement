@@ -8,15 +8,17 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Starting Hotel.Web application...");
-        LoadDotEnv();
         CreateWebHostBuilder(args).Build().Run();
     }
 
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        LoadDotEnv();
+        return WebHost.CreateDefaultBuilder(args)
             .UseStartup<Startup>();
+    }
 
-    private static void LoadDotEnv()
+    internal static void LoadDotEnv()
     {
         var envFile = FindDotEnvFile();
         if (envFile is null)

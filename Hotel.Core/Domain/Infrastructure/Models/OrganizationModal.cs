@@ -12,6 +12,18 @@
         [System.ComponentModel.DataAnnotations.StringLength(50)]
         public string code { get; set; }
 
+        [System.ComponentModel.DataAnnotations.StringLength(2048)]
+        public string? logo { get; set; }
+
+        [System.ComponentModel.DataAnnotations.EmailAddress]
+        [System.ComponentModel.DataAnnotations.StringLength(256)]
+        public string? email { get; set; }
+
+        [System.ComponentModel.DataAnnotations.StringLength(32)]
+        public string? phoneNumber { get; set; }
+
+        public bool isActive { get; set; } = true;
+
         public string description { get; set; }
         public OrganizationModal() {
          

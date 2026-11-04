@@ -1,10 +1,48 @@
 @model OrganizationModal
 
-<div asp-validation-summary="ModelOnly" class="validation"></div>
+<div asp-validation-summary="ModelOnly" class="validation form-validation"></div>
 <input asp-for="id" type="hidden" />
-<label asp-for="name">Name</label>
-<input asp-for="name" autocomplete="organization" />
-<span asp-validation-for="name" class="field-validation-error"></span>
-<label asp-for="code">Code</label>
-<input asp-for="code" />
-<span asp-validation-for="code" class="field-validation-error"></span>
+<div class="form-grid">
+    <div class="form-field">
+        <label asp-for="name">Organization name</label>
+        <input asp-for="name" class="form-control" autocomplete="organization" placeholder="e.g. Northstar Hotels" />
+        <span asp-validation-for="name" class="field-validation-error"></span>
+    </div>
+    <div class="form-field">
+        <label asp-for="code">Organization code</label>
+        <input asp-for="code" class="form-control" placeholder="e.g. NORTHSTAR" />
+        <span asp-validation-for="code" class="field-validation-error"></span>
+    </div>
+    <div class="form-field">
+        <label asp-for="email">Email address</label>
+        <input asp-for="email" class="form-control" type="email" autocomplete="email" placeholder="name@company.com" />
+        <span asp-validation-for="email" class="field-validation-error"></span>
+    </div>
+    <div class="form-field">
+        <label asp-for="phoneNumber">Phone number</label>
+        <input asp-for="phoneNumber" class="form-control" type="tel" autocomplete="tel" placeholder="+1 555 000 0000" />
+        <span asp-validation-for="phoneNumber" class="field-validation-error"></span>
+    </div>
+    <div class="form-field form-field-wide">
+        <label for="logoFile">Organization logo</label>
+        @if (!string.IsNullOrWhiteSpace(Model.logo))
+        {
+            <div class="logo-preview">
+                <img src="@Model.logo" alt="Current organization logo" />
+                <span>Current logo</span>
+            </div>
+        }
+        <input id="logoFile" name="logoFile" class="form-control file-control" type="file" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" />
+        <small class="field-hint">PNG, JPG, or WebP. Maximum file size: 2 MB.</small>
+        @Html.ValidationMessage("logoFile", "", new { @class = "field-validation-error" })
+    </div>
+    <div class="form-field form-field-wide">
+        <label class="active-toggle">
+            <input asp-for="isActive" class="active-checkbox" />
+            <span>
+                <strong>Organization is active</strong>
+                <small>Active organizations can access tenant features.</small>
+            </span>
+        </label>
+    </div>
+</div>

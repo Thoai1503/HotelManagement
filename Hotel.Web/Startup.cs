@@ -1,6 +1,7 @@
 ﻿using Hotel.Core.Domain.Service.Tenant;
 using Hotel.Core.Domain.Repositories.Tenant;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 namespace Hotel.Web
 {
@@ -34,7 +35,7 @@ namespace Hotel.Web
             {
                 options.UseMySql(
                     connectionString,
-                    ServerVersion.AutoDetect(connectionString)
+                    new MySqlServerVersion(new Version(8, 0, 0))
                 );
             });
             services.AddControllers();
@@ -63,6 +64,20 @@ namespace Hotel.Web
             }
 
             app.UseHttpsRedirection();
+
+            var webRootPath = env.WebRootPath;
+            if (string.IsNullOrWhiteSpace(webRootPath))
+            {
+                webRootPath = Path.Combine(env.ContentRootPath, "wwwroot");
+            }
+
+            var webRootExists = Directory.Exists(webRootPath);
+            Directory.CreateDirectory(
+                Path.Combine(webRootPath, "uploads", "organizations"));
+            if (!webRootExists)
+            {
+                env.WebRootFileProvider = new PhysicalFileProvider(webRootPath);
+            }
 
             app.UseStaticFiles();
 
