@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Domain\Helpers\" />
+    <Folder Include="Domain\Mvc\" />
   </ItemGroup>
 
 </Project>

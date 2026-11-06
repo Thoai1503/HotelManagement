@@ -8,5 +8,10 @@ namespace Hotel.Core.Domain.Repositories.Tenant
         public HotelRepository(HotelDbContext dbContext) : base(dbContext)
         {
         }
+        public override  async Task<HotelModal> Insert(HotelModal model)
+        {
+           
+            return model;
+        }
     }
 }

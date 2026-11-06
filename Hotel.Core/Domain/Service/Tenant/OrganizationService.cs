@@ -3,7 +3,7 @@ using Hotel.Core.Domain.Repositories.Tenant;
 
 namespace Hotel.Core.Domain.Service.Tenant
 {
-    public class OrganizationService : BaseService<IOrganizationRepository>
+    public class OrganizationService : BaseService<IOrganizationRepository> ,IOrganizationService
     {
         public OrganizationService(
             IOrganizationRepository repository,

@@ -33,9 +33,24 @@ namespace Hotel.Core.Domain.Service
             throw new NotImplementedException();
         }
 
-        public Task<int> Update<TEntity>(TEntity entity)
+        public Task<TEntity> Update<TEntity>(TEntity entity)
         {
-            throw new NotImplementedException();
+            return (Repository as IBaseRepository<TEntity>).Update(entity);
+        }
+
+        public Task<TEntity> Create<TEntity>(TEntity entity)
+        {
+            return (Repository as IBaseRepository<TEntity>).Insert(entity);
+        }
+
+        public Task<TEntity?> GetById<TEntity>(Guid id)
+        {
+            return (Repository as IBaseRepository<TEntity>).GetById(id);
+        }
+
+        public Task<IReadOnlyList<TEntity>> GetAll<TEntity>()
+        {
+           return (Repository as IBaseRepository<TEntity>).GetAll();
         }
     }
 }

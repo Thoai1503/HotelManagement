@@ -71,7 +71,7 @@ namespace Hotel.Core.Domain.Repositories
             return models;
         }
 
-        public async Task<TModel> Insert(TModel model)
+        public virtual   async Task<TModel> Insert(TModel model)
         {
             ArgumentNullException.ThrowIfNull(model);
 
@@ -85,7 +85,7 @@ namespace Hotel.Core.Domain.Repositories
             return model;
         }
 
-        public async Task<TModel> Update(TModel model)
+        public virtual  async Task<TModel> Update(TModel model)
         {
             ArgumentNullException.ThrowIfNull(model);
 
@@ -104,7 +104,7 @@ namespace Hotel.Core.Domain.Repositories
             return model;
         }
 
-        public async Task<TModel> Delete(TModel model)
+        public virtual async Task<TModel> Delete(TModel model)
         {
             ArgumentNullException.ThrowIfNull(model);
 

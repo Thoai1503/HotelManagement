@@ -1,4 +1,5 @@
 ﻿using Hotel.Core.Domain.Infrastructure.Models;
+using Hotel.Core.Domain.Mvc.Controllers;
 using Hotel.Core.Domain.Service.Tenant;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,32 +7,31 @@ using Microsoft.AspNetCore.Mvc;
 namespace Hotel.Web.Areas.Tenant.Controllers
 {
     [Area("Tenant")]
-    public class OrganizationController : Controller
+    public class OrganizationController : BaseController<IOrganizationService,OrganizationModal>
     {
         private const long MaximumLogoSizeBytes = 2 * 1024 * 1024;
         private const int MaximumRequestSizeBytes = 3 * 1024 * 1024;
         private const string LogoUrlPrefix = "/uploads/organizations/";
 
-        private readonly OrganizationService _organizationService;
         private readonly IWebHostEnvironment _environment;
 
         public OrganizationController(
-            OrganizationService organizationService,
+            IOrganizationService service,
             IWebHostEnvironment environment)
+            : base(service)
         {
-            _organizationService = organizationService;
             _environment = environment;
         }
 
         public async Task<IActionResult> Index()
         {
-            var organizations = await _organizationService.GetAll();
+            var organizations = await Service.GetAll();
             return View(organizations);
         }
 
         public async Task<IActionResult> Details(Guid id)
         {
-            var organization = await _organizationService.GetById(id);
+            var organization = await Service.GetById(id);
             return organization is null ? NotFound() : View(organization);
         }
 
@@ -41,7 +41,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
             OrganizationModal organization;
             if (id.HasValue)
             {
-                var existingOrganization = await _organizationService.GetById(id.Value);
+                var existingOrganization = await Service.GetById(id.Value);
                 if (existingOrganization is null)
                 {
                     return NotFound();
@@ -62,7 +62,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         [ValidateAntiForgeryToken]
         [RequestSizeLimit(MaximumRequestSizeBytes)]
         public async Task<IActionResult> CreateOrUpdate(
-            Guid? id,
+            [FromRoute] Guid? id,
             OrganizationModal organization,
             IFormFile? logoFile)
         {
@@ -74,7 +74,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
             OrganizationModal? existingOrganization = null;
             if (id.HasValue)
             {
-                existingOrganization = await _organizationService.GetById(id.Value);
+                existingOrganization = await Service.GetById(id.Value);
                 if (existingOrganization is null)
                 {
                     return NotFound();
@@ -111,11 +111,11 @@ namespace Hotel.Web.Areas.Tenant.Controllers
             {
                 if (existingOrganization is null)
                 {
-                    await _organizationService.Create(organization);
+                    await Service.Create(organization);
                 }
                 else
                 {
-                    await _organizationService.Update(organization);
+                    await Service.Update(organization);
                 }
             }
             catch
@@ -146,7 +146,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var organization = await _organizationService.GetById(id);
+            var organization = await Service.GetById(id);
             return organization is null ? NotFound() : View(organization);
         }
 
@@ -154,13 +154,13 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var organization = await _organizationService.GetById(id);
+            var organization = await Service.GetById(id);
             if (organization is null)
             {
                 return NotFound();
             }
 
-            await _organizationService.Delete(organization);
+            await Service.Delete(organization);
             DeleteLogo(organization.logo);
             return RedirectToAction(nameof(Index));
         }

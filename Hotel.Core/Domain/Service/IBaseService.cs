@@ -5,11 +5,13 @@ namespace Hotel.Core.Domain.Service
     public interface IBaseService
     {
         Task<SearchResult<TEntity>> Search<TEntity>(SearchOptions<TEntity> options);
-        Task<TEntity> Insert<TEntity>(TEntity entity);
+        Task<TEntity> Create<TEntity>(TEntity entity);
 
-        Task<int> Update<TEntity>(TEntity entity);
+        Task<TEntity> Update<TEntity>(TEntity entity);
 
+        Task<TEntity?> GetById<TEntity>(Guid id);
 
+        Task<IReadOnlyList<TEntity>> GetAll<TEntity>();
         Task<bool> Delete<TEntity>(TEntity entity);
     }
 }

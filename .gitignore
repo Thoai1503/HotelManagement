@@ -31,3 +31,6 @@
 /Hotel.Web/.env
 /Hotel.Web/.env.*
 !/Hotel.Web/.env.example
+
+# JavaScript build dependencies
+/Hotel.Web/node_modules/

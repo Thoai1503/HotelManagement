@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Tenant\Views\" />
+    <Folder Include="Areas\Tenant\Views\Hotel\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
 

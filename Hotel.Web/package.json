@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && esbuild wwwroot/js/App.ts --bundle --platform=browser --format=iife --target=es2020 --outfile=wwwroot/js/tenant.bundle.js && esbuild wwwroot/js/App.ts --bundle --platform=browser --format=iife --target=es2020 --minify --outfile=wwwroot/js/tenant.bundle.min.js"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.32",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
