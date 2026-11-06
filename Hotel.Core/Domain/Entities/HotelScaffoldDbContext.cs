@@ -32,11 +32,12 @@ public partial class HotelScaffoldDbContext : DbContext
     public virtual DbSet<HotelMembership> HotelMemberships { get; set; }
 
     public virtual DbSet<Organization> Organizations { get; set; }
-
+    
     public virtual DbSet<OrganizationMember> OrganizationMembers { get; set; }
 
     public virtual DbSet<Permission> Permissions { get; set; }
-
+    
+    public virtual DbSet<User> Users { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
