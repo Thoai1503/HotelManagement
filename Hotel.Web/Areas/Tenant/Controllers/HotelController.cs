@@ -1,6 +1,6 @@
 using Hotel.Core.Domain.Infrastructure.Models;
-using Hotel.Core.Domain.Mvc.Controllers;
 using Hotel.Core.Domain.Service.Tenant;
+using Hotel.Core.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hotel.Web.Areas.Tenant.Controllers

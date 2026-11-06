@@ -1,8 +1,6 @@
-
-
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hotel.Core.Domain.Mvc.Controllers
+namespace Hotel.Core.Mvc.Controllers
 {
     public class MasterController<TService, TModel> : BaseController<TService, TModel>
     {

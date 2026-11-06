@@ -1,7 +1,7 @@
 ﻿using Hotel.Core.Domain.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hotel.Core.Domain.Mvc.Controllers
+namespace Hotel.Core.Mvc.Controllers
 {
     public class BaseController : Controller
     {
