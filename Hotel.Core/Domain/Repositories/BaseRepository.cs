@@ -8,13 +8,13 @@ namespace Hotel.Core.Domain.Repositories
 {
     public abstract class BaseRepository : IBaseRepository
     {
-        protected DbContext DbContext { get; }
+        protected HotelDbContext DbContext { get; }
 
         public MySqlConnection Connection { get; }
 
         public MySqlTransaction? Transaction { get; private set; }
 
-        protected BaseRepository(DbContext dbContext)
+        protected BaseRepository(HotelDbContext dbContext)
         {
             DbContext = dbContext;
 
@@ -51,7 +51,7 @@ namespace Hotel.Core.Domain.Repositories
     {
         private DbSet<TEntity> Entities => DbContext.Set<TEntity>();
 
-        protected BaseRepository(DbContext dbContext) : base(dbContext)
+        protected BaseRepository(HotelDbContext dbContext) : base(dbContext)
         {
         }
 

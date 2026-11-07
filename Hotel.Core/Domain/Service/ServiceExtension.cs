@@ -1,4 +1,5 @@
-﻿using Hotel.Core.Domain.Service.Tenant;
+﻿using Hotel.Core.Domain.Service.Others;
+using Hotel.Core.Domain.Service.Tenant;
 
 namespace Hotel.Core.Domain.Service
 {
@@ -6,8 +7,9 @@ namespace Hotel.Core.Domain.Service
     {
         public static void UseService(this IServiceCollection services)
         {
-            services.AddScoped<IOrganizationService, OrganizationService>();
-            services.AddScoped<IHotelService, HotelService>();
+            services.AddTransient<IOrganizationService, OrganizationService>();
+            services.AddTransient<IHotelService, HotelService>();
+            services.AddTransient<IAccountService, AccountService>();
         }
     }
 }

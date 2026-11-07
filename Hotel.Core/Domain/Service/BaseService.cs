@@ -16,6 +16,7 @@ namespace Hotel.Core.Domain.Service
         {
             Repository = repository;
             _httpContextAccessor = httpContextAccessor;
+//httpContextAccessor.HttpContext.RequestServices.GetService(typeof(TRepository));
             baseRepository = (IBaseRepository)repository as IBaseRepository;
         }
         public Task<bool> Delete<TEntity>(TEntity entity)

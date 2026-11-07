@@ -3,6 +3,7 @@ using Hotel.Core.Domain.Repositories.Tenant;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Hotel.Core.Domain.Service;
+using Hotel.Core.Domain.Repositories;
 
 namespace Hotel.Web
 {
@@ -41,11 +42,10 @@ namespace Hotel.Web
             });
             services.AddControllers();
             services.AddHttpContextAccessor();
-            services.AddScoped<IOrganizationRepository, OrganizationRepository>();
-            services.AddScoped<IHotelRepository, HotelRepository>();
+            services.UseRepository();
             services.UseService();
             // Đăng ký Infrastructure
-            // services.AddInfrastructure(Configuration);
+            /// services.AddInfrastructure(Configuration);
         }
 
         // Cấu hình HTTP Middleware Pipeline
