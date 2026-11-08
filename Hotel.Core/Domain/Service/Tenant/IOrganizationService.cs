@@ -4,10 +4,10 @@ namespace Hotel.Core.Domain.Service.Tenant
 {
     public interface IOrganizationService
     {
-        Task<IReadOnlyList<OrganizationModal>> GetAll();
-        Task<OrganizationModal?> GetById(Guid id);
-        Task<OrganizationModal> Create(OrganizationModal organization);
-        Task<OrganizationModal> Update(OrganizationModal organization);
-        Task<OrganizationModal> Delete(OrganizationModal organization);
+        Task<IReadOnlyList<OrganizationModel>> GetAll();
+        Task<OrganizationModel?> GetById(Guid id);
+        Task<OrganizationModel> Create(OrganizationModel organization);
+        Task<OrganizationModel> Update(OrganizationModel organization);
+        Task<OrganizationModel> Delete(OrganizationModel organization);
     }
 }

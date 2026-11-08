@@ -12,27 +12,27 @@ namespace Hotel.Core.Domain.Service.Tenant
         {
         }
 
-        public Task<IReadOnlyList<OrganizationModal>> GetAll()
+        public Task<IReadOnlyList<OrganizationModel>> GetAll()
         {
             return Repository.GetAll();
         }
 
-        public Task<OrganizationModal?> GetById(Guid id)
+        public Task<OrganizationModel?> GetById(Guid id)
         {
             return Repository.GetById(id);
         }
 
-        public Task<OrganizationModal> Create(OrganizationModal organization)
+        public Task<OrganizationModel> Create(OrganizationModel organization)
         {
             return Repository.Insert(organization);
         }
 
-        public Task<OrganizationModal> Update(OrganizationModal organization)
+        public Task<OrganizationModel> Update(OrganizationModel organization)
         {
             return Repository.Update(organization);
         }
 
-        public Task<OrganizationModal> Delete(OrganizationModal organization)
+        public Task<OrganizationModel> Delete(OrganizationModel organization)
         {
             return Repository.Delete(organization);
         }

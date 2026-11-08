@@ -4,7 +4,7 @@ namespace Hotel.Core.Domain.Infrastructure.Models
 {
     public class HotelModal
     {
-        public Guid id { get; set; } = Guid.NewGuid();
+        public Guid id { get; set; }
 
         [Required]
         public Guid organizationId { get; set; }

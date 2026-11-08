@@ -3,7 +3,7 @@ using Hotel.Core.Domain.Repositories;
 
 namespace Hotel.Core.Domain.Repositories.Tenant
 {
-    public interface IOrganizationRepository : IBaseRepository<OrganizationModal>
+    public interface IOrganizationRepository : IBaseRepository<OrganizationModel>
     {
     }
 }

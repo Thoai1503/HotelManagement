@@ -44,6 +44,21 @@ public partial class HotelScaffoldDbContext : DbContext
             .UseCollation("utf8mb4_0900_ai_ci")
             .HasCharSet("utf8mb4");
 
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.ToTable("users");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.Property(e => e.Id).HasColumnName("Id");
+            entity.Property(e => e.Username).HasColumnName("Username");
+            entity.Property(e => e.PasswordHash).HasColumnName("PasswordHash");
+            entity.Property(e => e.Email).HasColumnName("Email");
+            entity.Property(e => e.PhoneNumber).HasColumnName("PhoneNumber");
+            entity.Property(e => e.AvatarUrl).HasColumnName("AvatarUrl");
+            entity.Property(e => e.IsActive).HasColumnName("IsActive");
+            entity.Property(e => e.CreatedAtUtc).HasColumnName("CreatedAtUtc");
+        });
+
         modelBuilder.Entity<AspNetRole>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");

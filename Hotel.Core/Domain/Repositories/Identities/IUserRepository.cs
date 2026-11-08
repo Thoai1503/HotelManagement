@@ -3,12 +3,12 @@ using Hotel.Core.Domain.Infrastructure.Models;
 
 namespace Hotel.Core.Domain.Repositories.Identities
 {
-    public interface IUserRepository : IBaseRepository<UserModal>
+    public interface IUserRepository : IBaseRepository<UserModel>
     {
-        Task<UserModal> GetSingleUser(string id);
+        Task<UserModel?> GetSingleUser(Guid id);
         Task<bool> EmailIsExist(string email);
 
-        Task<UserModal> GetUserByEmail(string email);
+        Task<UserModel?> GetUserByEmail(string email);
         Task<bool> Register(User user);
 
         Task<bool> ChangeActive(User user);

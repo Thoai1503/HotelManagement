@@ -1,93 +1,76 @@
-﻿using Hotel.Core.Domain.Entities;
+using Hotel.Core.Domain.Entities;
 using Hotel.Core.Domain.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hotel.Core.Domain.Repositories.Identities
 {
-    public class UserRepository : BaseRepository<User, UserModal>, IUserRepository
+    public class UserRepository : BaseRepository<UserModel, User>, IUserRepository
     {
         public UserRepository(HotelDbContext dbContext) : base(dbContext)
         {
         }
 
-        public Task<bool> ChangeActive(User user)
+        public async Task<bool> ChangeActive(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<UserModal> Delete(UserModal entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> EmailIsExist(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> GetSingleUser(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<UserModal> GetUserByEmail(string email)
-        {
-        
-            var model = new UserModal();
-            var entity = DbContext.Users.FirstOrDefault(u => u.Email == email);
-            if (entity == null) {
-               
-                return Task.FromResult<UserModal>(null);
-            }
-            else
+            var existingUser = await DbContext.Users.FindAsync(user.Id);
+            if (existingUser is null)
             {
-                model.id = entity.Id;
-                model.userName = entity.Username;
-                model.passwordHash = entity.PasswordHash;
-                model.email = entity.Email;
-                model.phoneNumber = entity.PhoneNumber;
-                model.avatarUrl = entity.AvatarUrl;
-                model.isActive = entity.IsActive;
-                model.createdAtUtc = entity.CreatedAtUtc;
-                return Task.FromResult(model);
+                return false;
             }
- 
-          
+
+            existingUser.IsActive = user.IsActive;
+            await DbContext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<IEnumerable<User>> GetUsers(List<string> userIds)
+        public async Task<bool> EmailIsExist(string email)
         {
-            throw new NotImplementedException();
+            return await DbContext.Users.AnyAsync(user => user.Email == email);
         }
 
-        public Task<UserModal> Insert(UserModal entity)
+        public async Task<UserModel?> GetSingleUser(Guid id)
         {
-            throw new NotImplementedException();
+            return await GetById(id);
         }
 
-        public Task<bool> Register(User user)
+        public async Task<UserModel?> GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            var entity = await DbContext.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(user => user.Email == email);
+
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new UserModel
+            {
+                id = entity.Id,
+                userName = entity.Username,
+                passwordHash = entity.PasswordHash,
+                email = entity.Email,
+                phoneNumber = entity.PhoneNumber,
+                avatarUrl = entity.AvatarUrl,
+                isActive = entity.IsActive,
+                createdAtUtc = entity.CreatedAtUtc
+            };
         }
 
-        public Task<UserModal> Update(UserModal entity)
+        public async Task<IEnumerable<User>> GetUsers(List<string> userIds)
         {
-            throw new NotImplementedException();
+            var ids = userIds.Select(Guid.Parse).ToList();
+            return await DbContext.Users
+                .AsNoTracking()
+                .Where(user => ids.Contains(user.Id))
+                .ToListAsync();
         }
 
-        Task<IReadOnlyList<UserModal>> IBaseRepository<UserModal>.GetAll()
+        public async Task<bool> Register(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<UserModal?> IBaseRepository<UserModal>.GetById(params object[] keyValues)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<UserModal> IUserRepository.GetSingleUser(string id)
-        {
-            throw new NotImplementedException();
+            await DbContext.Users.AddAsync(user);
+            await DbContext.SaveChangesAsync();
+            return true;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Hotel.Core.Domain.Infrastructure.Models
 {
-    public class UserModal
+    public class UserModel
     {
          
       public Guid id { get; set; }

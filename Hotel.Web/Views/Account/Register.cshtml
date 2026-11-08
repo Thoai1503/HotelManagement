@@ -1,0 +1,45 @@
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<section class="auth-page">
+    <div class="auth-card">
+        <p class="auth-eyebrow">HOTEL MANAGEMENT</p>
+        <h1>Tạo tài khoản</h1>
+        <p class="auth-description">Đăng ký để bắt đầu sử dụng hệ thống khách sạn.</p>
+
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation"></div>
+            <div class="auth-field">
+                <label asp-for="UserName">Họ và tên</label>
+                <input asp-for="UserName" autocomplete="name" placeholder="Nguyễn Văn A" autofocus />
+                <span asp-validation-for="UserName" class="field-validation-error"></span>
+            </div>
+            <div class="auth-field">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" type="email" autocomplete="email" placeholder="name@example.com" />
+                <span asp-validation-for="Email" class="field-validation-error"></span>
+            </div>
+            <div class="auth-field">
+                <label asp-for="PhoneNumber">Số điện thoại</label>
+                <input asp-for="PhoneNumber" type="tel" autocomplete="tel" placeholder="090 123 4567" />
+                <span asp-validation-for="PhoneNumber" class="field-validation-error"></span>
+            </div>
+            <div class="auth-field">
+                <label asp-for="Password">Mật khẩu</label>
+                <input asp-for="Password" autocomplete="new-password" placeholder="Ít nhất 8 ký tự" />
+                <span asp-validation-for="Password" class="field-validation-error"></span>
+            </div>
+            <div class="auth-field">
+                <label asp-for="ConfirmPassword">Xác nhận mật khẩu</label>
+                <input asp-for="ConfirmPassword" autocomplete="new-password" placeholder="Nhập lại mật khẩu" />
+                <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
+            </div>
+            <button class="button auth-submit" type="submit">Đăng ký</button>
+        </form>
+
+        <p class="auth-switch">Đã có tài khoản? <a asp-action="Login">Đăng nhập</a></p>
+    </div>
+</section>

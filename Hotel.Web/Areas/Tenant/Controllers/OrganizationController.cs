@@ -1,4 +1,5 @@
-﻿using Hotel.Core.Domain.Infrastructure.Models;
+﻿using System.Collections.Frozen;
+using Hotel.Core.Domain.Infrastructure.Models;
 using Hotel.Core.Domain.Service.Tenant;
 using Hotel.Core.Mvc.Controllers;
 using Microsoft.AspNetCore.Hosting;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Hotel.Web.Areas.Tenant.Controllers
 {
     [Area("Tenant")]
-    public class OrganizationController : BaseController<IOrganizationService,OrganizationModal>
+    public class OrganizationController : BaseController<IOrganizationService,OrganizationModel>
     {
         private const long MaximumLogoSizeBytes = 2 * 1024 * 1024;
         private const int MaximumRequestSizeBytes = 3 * 1024 * 1024;
@@ -38,7 +39,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateOrUpdate(Guid? id)
         {
-            OrganizationModal organization;
+            OrganizationModel organization;
             if (id.HasValue)
             {
                 var existingOrganization = await Service.GetById(id.Value);
@@ -52,7 +53,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
             }
             else
             {
-                organization = new OrganizationModal();
+                organization = new OrganizationModel();
             }
 
             return View(organization);
@@ -63,7 +64,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
         [RequestSizeLimit(MaximumRequestSizeBytes)]
         public async Task<IActionResult> CreateOrUpdate(
             [FromRoute] Guid? id,
-            OrganizationModal organization,
+            OrganizationModel organization,
             IFormFile? logoFile)
         {
             if (id.HasValue && id.Value != organization.id)
@@ -71,7 +72,7 @@ namespace Hotel.Web.Areas.Tenant.Controllers
                 return BadRequest();
             }
 
-            OrganizationModal? existingOrganization = null;
+            OrganizationModel? existingOrganization = null;
             if (id.HasValue)
             {
                 existingOrganization = await Service.GetById(id.Value);
@@ -89,6 +90,8 @@ namespace Hotel.Web.Areas.Tenant.Controllers
 
             if (!ModelState.IsValid)
             {
+                Console.WriteLine("Model state is invalid. Returning to view with validation errors.");
+             Console.WriteLine(ModelState.ToFrozenDictionary().Select(kvp => $"{kvp.Key}: {string.Join(", ", kvp.Value.Errors.Select(e => e.ErrorMessage))}").Aggregate((a, b) => a + "; " + b));
                 organization.isEditMode = id.HasValue;
                 if (existingOrganization is not null)
                 {
@@ -111,10 +114,12 @@ namespace Hotel.Web.Areas.Tenant.Controllers
             {
                 if (existingOrganization is null)
                 {
+                    Console.WriteLine("Creating a new organization.");
                     await Service.Create(organization);
                 }
                 else
                 {
+                    Console.WriteLine($"Updating organization with id: {organization.id}");
                     await Service.Update(organization);
                 }
             }

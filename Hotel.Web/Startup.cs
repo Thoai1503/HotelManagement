@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Hotel.Core.Domain.Service;
 using Hotel.Core.Domain.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Hotel.Web
 {
@@ -21,6 +22,16 @@ namespace Hotel.Web
         {
             // MVC
             services.AddControllersWithViews();
+            services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                    options.AccessDeniedPath = "/Account/Login";
+                    options.Cookie.HttpOnly = true;
+                    options.Cookie.SameSite = SameSiteMode.Lax;
+                    options.SlidingExpiration = true;
+                });
 
             // MySQL Connection
             var connectionString = Configuration

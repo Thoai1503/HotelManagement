@@ -1,7 +1,7 @@
 @model HotelModal
 @{
-    IReadOnlyList<OrganizationModal>? organizations = ViewData["Organizations"] as IReadOnlyList<OrganizationModal>
-        ?? Array.Empty<OrganizationModal>();
+    IReadOnlyList<OrganizationModel>? organizations = ViewData["Organizations"] as IReadOnlyList<OrganizationModel>
+        ?? Array.Empty<OrganizationModel>();
 }
 
 <div asp-validation-summary="ModelOnly" class="validation form-validation"></div>
@@ -30,7 +30,7 @@
                 </svg>
             </button>
             <div class="organization-picker-menu" role="listbox" aria-label="Organizations" hidden>
-                @foreach (OrganizationModal organization in organizations)
+                @foreach (OrganizationModel organization in organizations)
                 {
                     var initials = string.IsNullOrWhiteSpace(organization.name)
                         ? "O"

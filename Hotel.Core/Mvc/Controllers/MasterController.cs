@@ -59,6 +59,7 @@ namespace Hotel.Core.Mvc.Controllers
         [HttpPost]
         public virtual async Task<IActionResult> CreateOrUpdate(TModel model)
         {
+            Console.WriteLine($"Model received: {model}");
             if (BaseService is null)
             {
                 return NotFound();
@@ -66,26 +67,37 @@ namespace Hotel.Core.Mvc.Controllers
 
             if (!ModelState.IsValid)
             {
+                Console.WriteLine("Model state is invalid. Returning to view with validation errors.");
+                Console.WriteLine(ModelState.ToString());
+    
                 return View(model);
             }
 
             var modelType = typeof(TModel);
             var idProperty = modelType.GetProperty("id");
+
             if (idProperty is null)
             {
                 throw new InvalidOperationException($"The model type '{modelType.Name}' does not have an 'id' property.");
             }
 
             var idValue = idProperty.GetValue(model);
-            if (idValue is null || (Guid)idValue == Guid.Empty)
+            if (idValue is null || idValue is Guid guidValue && guidValue == Guid.Empty)
             {
+                if (idProperty.PropertyType == typeof(Guid))
+                {
+                    idProperty.SetValue(model, Guid.NewGuid());
+                }
+
+                Console.WriteLine("Creating a new model.");
                 await BaseService.Create(model);
             }
             else
             {
+                Console.WriteLine($"Updating model with id: {idValue}");
                 await BaseService.Update(model);
             }
-
+               Console.WriteLine("Redirecting to Index after successful create/update.");
             return RedirectToAction(nameof(Index));
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Hotel.Core.Domain.Infrastructure.Models
 {
-    public class OrganizationModal
+    public class OrganizationModel
     { 
         public Guid id { get; set; }
 
@@ -26,8 +26,8 @@
 
         public bool isEditMode { get; set; }
 
-        public string description { get; set; }
-        public OrganizationModal() {
+        
+        public OrganizationModel() {
          
             id = Guid.NewGuid();
         }
