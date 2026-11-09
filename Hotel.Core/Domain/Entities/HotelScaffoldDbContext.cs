@@ -38,6 +38,8 @@ public partial class HotelScaffoldDbContext : DbContext
     public virtual DbSet<Permission> Permissions { get; set; }
     
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<AdminUser> AdminUsers { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder

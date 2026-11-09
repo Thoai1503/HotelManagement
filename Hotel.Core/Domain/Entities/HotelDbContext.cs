@@ -12,5 +12,10 @@ public class HotelDbContext : HotelScaffoldDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<OrganizationMember>()
+            .Property(member => member.Status)
+            .HasConversion<string>()
+            .HasMaxLength(9);
     }
 }

@@ -12,6 +12,7 @@ namespace Hotel.Core.Domain.Repositories
             services.AddTransient<IHotelRepository, HotelRepository>();
             services.AddTransient<IOrganizationRepository, OrganizationRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IAdminUserRepository, AdminUserRepository>();
         }
     }
 }

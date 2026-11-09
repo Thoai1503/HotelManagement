@@ -11,8 +11,8 @@ public partial class OrganizationMember
 
     public Guid UserId { get; set; }
 
-    // public MembershipStatus Status { get; set; }
-    public int Status { get; set; }
+     public MembershipStatus Status { get; set; }
+    // public int Status { get; set; }
     public DateTime CreatedAtUtc { get; set; }
 
     public virtual ICollection<HotelMembership> HotelMemberships { get; set; } = new List<HotelMembership>();
